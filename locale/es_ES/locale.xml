@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<locale name="en_US" full_name="U.S. English">
+	<message key="plugins.generic.utplMetrics.displayName">Módulo utplMetrics</message>
+	<message key="plugins.generic.utplMetrics.description"><![CDATA[Módulo para mostrar las Métricas a Nivel de Artículo (Article Level Metrics, "ALM" en inglés) desarrollado por <a href="http://ec.linkedin.com/in/ragutierrez/es/" target="_blank">Rommel Gutiérrez Roa</a> estudiante de la <a href="http://www.utpl.edu.ec/" target="_blank">Universidad Técnica Particula de Loja</a>. Para el correcto funcionameinto de este Plugin, se necesita que obligatoriamente se tenga habilitado el Módulo DOI el cual se lo puede realizar en la opción <a href="pubIds">Conectores de identificadores públicos</a>]]></message>
+	<message key="plugins.generic.utplMetrics.title">Métricas del artículo</message>
+	<message key="plugins.generic.utplMetrics.loading">Cargando métricas espere...</message>
+
+	<message key="plugins.generic.utplMetrics.settings">Configuración</message>
+	<message key="plugins.generic.utplMetrics.settings.saved">Se ha guadado la configuración del módulo utplMetrics.</message>
+	<message key="plugins.generic.utplMetrics.altmetricAPIKeyRequired">Necesitamos que añada la clave de la API de Altmetric</message>
+	<message key="plugins.generic.utplMetrics.elsevierAPIKeyRequired">Necesitamos que añada la clave de la API de ELSEVIER</message>
+	<message key="plugins.generic.utplMetrics.settings.altmetricAPIKey">Altmetric</message>
+	<message key="plugins.generic.utplMetrics.settings.altmetricAPIKey.label">Clave API de Altmetric</message>
+	<message key="plugins.generic.utplMetrics.settings.altmetricAPIKey.description"><![CDATA[Para que la contabilización de la difusión de los artículos en cuanto a redes sociales sea más aproximada, es necesaria la clave del API de Altmetric. Puedes obtener más información de la clave del API para Altmetric entrando en la <a href="http://api.altmetric.com/index.html#keys">página de Altmetric</a>.]]></message>
+	<message key="plugins.generic.utplMetrics.settings.elsevierAPIKey">ELSEVIER</message>
+	<message key="plugins.generic.utplMetrics.settings.elsevierAPIKey.label">Clave API de ELSEVIER</message>
+	<message key="plugins.generic.utplMetrics.settings.elsevierAPIKey.description"><![CDATA[Para que la contabilización de las citas por parte de SCOPUS se realice, es necesario estar en una red autorizada. También se puede solicitar una clave para utilizar el API desde cualquier red entrando en la página para <a href="http://www.developers.elsevier.com/action/devprojects">registro de aplicaciones de ELSEVIER</a>.]]></message>
+	<message key="plugins.generic.utplMetrics.settings.scopusAPIKeyTip">When contacting ELSEVIER to get your API key, please provide them your journal URL</message>
+	
+	<message key="plugins.generic.utplMetrics.thisJournal">Esta revista</message>
+	
+	<message key="plugins.generic.utplMetrics.categories.html">Lecturas o visitas mediante HTML.</message>
+	<message key="plugins.generic.utplMetrics.categories.html.description">Número total de visitas HTML para este artículo. Estas visitas las contabiliza el propio sistema.</message>
+	<message key="plugins.generic.utplMetrics.categories.pdf">Lecturas o visitas mediante PDF.</message>
+	<message key="plugins.generic.utplMetrics.categories.pdf.description">Número total de visitas del PDF de este artículo. Estas visitas las contabiliza el propio sistema.</message>
+	<message key="plugins.generic.utplMetrics.categories.shares">Shares</message>
+	<message key="plugins.generic.utplMetrics.categories.shares.description">Shares or bookmarks a las redes sociales como Facebook, Google Plus, Reddit, Twitter, CiteULike y Mendeley.</message>
+	<message key="plugins.generic.utplMetrics.categories.citations">Citas</message>
+	<message key="plugins.generic.utplMetrics.categories.citations.description">Citas del artículo consultado directamente en SCOPUS.</message>
+
+	<message key="plugins.generic.utplMetrics.senderTask.warning.noDOIprefix">El módulo utplMetrics está activo pero es necesario especificar un prefijo DOI válido en  {$path}. Configúralo para obtener información del artículo.</message>
+	<message key="plugins.generic.utplMetrics.senderTask.warning.noElsevierApiKey">El módulo utplMetrics está activo pero no hay una clave del API definida para ELSEVIER.</message>
+	<message key="plugins.generic.utplMetrics.senderTask.name">Información utplMetrics del remitente del artículo</message>
+	
+	<message key="plugins.generic.utplMetrics.authors.label">Autores</message>
+	<message key="plugins.generic.utplMetrics.aboutAuthors.tabTitle">Acerca de los Autores</message>
+</locale>

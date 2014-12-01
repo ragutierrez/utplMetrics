@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  *
+  * plugins/generic/alm/scheduledTasks.xml
+  *
+  -->
+
+<!DOCTYPE scheduled_tasks SYSTEM "../../../lib/pkp/dtd/scheduledTasks.dtd">
+
+<scheduled_tasks>
+	<task class="plugins.generic.utplMetrics.ArticleInfoRetriever">
+		<descr>Article citation information retriever.</descr>
+		<frequency minute="0"/>
+	</task>
+</scheduled_tasks>
