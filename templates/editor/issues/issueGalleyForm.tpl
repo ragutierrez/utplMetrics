@@ -9,7 +9,7 @@
  *}
 {strip}
 {assign var="pageTitle" value="editor.issues.galley"}
-{include file="common/header.tpl"}
+{include file="`$importPath`templates/common/header.tpl"}
 {/strip}
 <div id="galleyForm">
 <h3>{if $galleyId}{translate key="submission.layout.editGalley"}{else}{translate key="submission.layout.addGalley"}{/if}</h3>

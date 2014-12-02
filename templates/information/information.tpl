@@ -9,7 +9,7 @@
  *
  *}
 {strip}
-{include file="common/header.tpl"}
+{include file="`$importPath`templates/common/header.tpl"}
 {/strip}
 <div id="journalInfo">
 <p>{$content|nl2br}</p>

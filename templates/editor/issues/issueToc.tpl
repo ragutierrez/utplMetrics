@@ -15,7 +15,7 @@
 	{assign var="pageTitle" value="editor.issues.noLiveIssues"}
 	{assign var="pageCrumbTitle" value="editor.issues.noLiveIssues"}
 {/if}
-{include file="common/header.tpl"}
+{include file="`$importPath`templates/common/header.tpl"}
 {/strip}
 
 <script type="text/javascript">

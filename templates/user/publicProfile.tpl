@@ -57,3 +57,4 @@
 </div>{* id="mainContent" *}
 
 {include file="common/footer.tpl"}
+

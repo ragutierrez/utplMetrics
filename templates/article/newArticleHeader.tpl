@@ -68,10 +68,10 @@
 	{/if}
 
 	<script type="text/javascript" src="{$baseImportPath}/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="{$baseImportPath}/bootstrap3/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="{$baseImportPath}/js/d3.v3.min.js"></script>
 	<script type="text/javascript" src="{$baseImportPath}/js/alm.js"></script>
 	<script type="text/javascript" src="{$baseImportPath}/js/Chart.js/Chart.js"></script>
-	<script type="text/javascript" src="{$baseImportPath}/bootstrap3/js/bootstrap.min.js"></script>
 
 	{$additionalHeadData}
 </head>

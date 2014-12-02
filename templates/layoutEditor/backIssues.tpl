@@ -9,7 +9,7 @@
  *
  *}
 {assign var="pageTitle" value="editor.issues.backIssues"}
-{url|assign:"currentUrl" page="editor" op="backIssues"}{include file="common/header.tpl"}
+{url|assign:"currentUrl" page="editor" op="backIssues"}{include file="`$importPath`templates/common/header.tpl"}
 
 <ul class="menu">
         <li><a href="{url op="futureIssues"}">{translate key="editor.navigation.futureIssues"}</a></li>

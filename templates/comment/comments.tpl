@@ -15,7 +15,7 @@
 {else}
 	{assign var=pageTitle value="comments.readerComments"}
 {/if}
-{include file="common/header.tpl"}
+{include file="`$importPath`templates/common/header.tpl"}
 {/strip}
 
 {if $enableComments==COMMENTS_UNAUTHENTICATED || (($enableComments==COMMENTS_AUTHENTICATED || $enableComments==COMMENTS_ANONYMOUS) && $isUserLoggedIn)}

@@ -16,14 +16,16 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset={$defaultCharset|escape}" />
 	<title>{translate key="issue.nonpdf.title"}</title>
-
+<!-- 
 	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/compiled.css" type="text/css" />
-
+ -->
 	{foreach from=$stylesheets item=cssUrl}
 		<link rel="stylesheet" href="{$cssUrl}" type="text/css" />
 	{/foreach}
+
+	<link rel="stylesheet" href="{$baseImportPath}/bootstrap3/css/bootstrap.min.css" type="text/css" />
 
 	<!-- Compiled scripts -->
 	{if $useMinifiedJavaScript}
@@ -33,6 +35,10 @@
 	{/if}
 
 	<meta http-equiv="refresh" content="2;URL={url op="download" path=$issueId|to_array:$galley->getBestGalleyId($currentJournal)}"/>
+	
+	<script type="text/javascript" src="{$baseImportPath}/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="{$baseImportPath}/bootstrap3/js/bootstrap.min.js"></script>
+
 	{$additionalHeadData}
 </head>
 <body>

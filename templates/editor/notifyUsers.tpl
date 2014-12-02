@@ -11,7 +11,7 @@
 {strip}
 {assign var="pageTitle" value="email.compose"}
 {assign var="pageCrumbTitle" value="email.email"}
-{include file="common/header.tpl"}
+{include file="`$importPath`templates/common/header.tpl"}
 {/strip}
 
 <div id="notifyUsers">

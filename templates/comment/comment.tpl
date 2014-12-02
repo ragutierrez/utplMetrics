@@ -10,7 +10,7 @@
  *}
 {strip}
 {assign var="pageTitle" value="comments.enterComment"}
-{include file="common/header.tpl"}
+{include file="`$importPath`templates/common/header.tpl"}
 {/strip}
 
 <script type="text/javascript">

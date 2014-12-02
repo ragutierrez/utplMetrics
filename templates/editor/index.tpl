@@ -11,7 +11,7 @@
 {strip}
 {assign var="pageTitle" value="editor.home"}
 {assign var="pageCrumbTitle" value="user.role.editor"}
-{include file="common/header.tpl"}
+{include file="`$importPath`templates/common/header.tpl"}
 {/strip}
 <div id="articleSubmissions">
 <h3>{translate key="article.submissions"}</h3>

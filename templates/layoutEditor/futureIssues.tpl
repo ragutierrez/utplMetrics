@@ -11,7 +11,7 @@
 {strip}
 {assign var="pageTitle" value="editor.issues.futureIssues"}
 {url|assign:"currentUrl" page="layoutEditor" op="futureIssues"}
-{include file="common/header.tpl"}
+{include file="`$importPath`templates/common/header.tpl"}
 {/strip}
 
 <ul class="menu">

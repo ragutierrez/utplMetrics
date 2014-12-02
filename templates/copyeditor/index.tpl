@@ -10,7 +10,7 @@
  *}
 {strip}
 {assign var="pageTitle" value="common.queue.long.$pageToDisplay"}
-{include file="common/header.tpl"}
+{include file="`$importPath`templates/common/header.tpl"}
 {/strip}
 
 <ul class="menu">

@@ -11,7 +11,7 @@
 {strip}
 {assign var="pageTitle" value="editor.issues.createIssue"}
 {url|assign:"currentUrl" page="editor" op="createIssue"}
-{include file="common/header.tpl"}
+{include file="`$importPath`templates/common/header.tpl"}
 {/strip}
 
 {include file="common/formErrors.tpl"}

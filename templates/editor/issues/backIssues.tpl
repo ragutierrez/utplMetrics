@@ -12,7 +12,7 @@
 {assign var="pageTitle" value="editor.issues.backIssues"}
 {assign var="page" value=$rangeInfo->getPage()}
 {url|assign:"currentUrl" page="editor" op="backIssues"}
-{include file="common/header.tpl"}
+{include file="`$importPath`templates/common/header.tpl"}
 {/strip}
 
 <script type="text/javascript">

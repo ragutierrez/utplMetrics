@@ -10,7 +10,7 @@
 {strip}
 {assign var="pageTitleTranslated" value=$issue->getIssueIdentification()}
 {assign var="pageCrumbTitleTranslated" value=$issue->getIssueIdentification(false,true)}
-{include file="common/header.tpl"}
+{include file="`$importPath`templates/common/header.tpl"}
 {/strip}
 
 {if !$isLayoutEditor}{* Layout Editors can also access this page. *}

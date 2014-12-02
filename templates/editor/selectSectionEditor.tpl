@@ -10,7 +10,7 @@
  *}
 {strip}
 {assign var="pageTitle" value=$roleName|concat:"s"}
-{include file="common/header.tpl"}
+{include file="`$importPath`templates/common/header.tpl"}
 {/strip}
 
 <h3>{translate key="editor.article.selectEditor" roleName=$roleName|translate}</h3>

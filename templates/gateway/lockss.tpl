@@ -11,7 +11,7 @@
  *}
 {strip}
 {assign var="pageTitleTranslated" value="LOCKSS Publisher Manifest"}
-{include file="common/header.tpl"}
+{include file="`$importPath`templates/common/header.tpl"}
 {/strip}
 
 {if $journals}
