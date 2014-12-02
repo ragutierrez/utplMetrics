@@ -10,7 +10,7 @@
  *}
 {strip}
 {assign var="pageCrumbTitle" value="author.submit"}
-{include {include file="`$importPath`templates/common/header.tpl"}}
+{include file="`$importPath`templates/common/header.tpl"}
 {/strip}
 
 <ul class="steplist">
@@ -29,4 +29,3 @@
 <li id="step5" {if $submitStep == 5} class="current"{/if}>{if $submitStep != 5 && $submissionProgress >= 5}<a href="{url op="submit" path="5" articleId=$articleId}">{/if}
 {translate key="author.submit.confirmation"}{if $submitStep != 5 && $submissionProgress >= 5}</a>{/if}</li>
 </ul>
-

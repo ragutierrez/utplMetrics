@@ -47,12 +47,12 @@ function handleAnonymousCheckbox(theBox) {
 		<td class="value" width="80%"><input type="text" class="textField" name="posterName" id="posterName" value="{$posterName|escape}" size="40" maxlength="90" /></td>
 	</tr>
 	<tr valign="top">
-		<td class="label"><label for="posterEmail">{translate key="comments.email"}</label></td>
+		<td><label for="posterEmail">{translate key="comments.email"}</label></td>
 		<td class="value"><input type="text" class="textField" name="posterEmail" id="posterEmail" value="{$posterEmail|escape}" size="40" maxlength="90" /></td>
 	</tr>
 	{if $isUserLoggedIn && ($enableComments == COMMENTS_ANONYMOUS || $enableComments == COMMENTS_UNAUTHENTICATED)}
 	<tr valign="top">
-		<td class="label">&nbsp;</td>
+		<td>&nbsp;</td>
 		<td class="value">
 			<input type="checkbox" name="anonymous" id="anonymous" onclick="handleAnonymousCheckbox(this)">
 			<label for="anonymous">{translate key="comments.postAnonymously"}</label>
@@ -60,11 +60,11 @@ function handleAnonymousCheckbox(theBox) {
 	</tr>
 	{/if}
 	<tr valign="top">
-		<td class="label"><label for="title">{translate key="comments.title"}</label></td>
+		<td><label for="title">{translate key="comments.title"}</label></td>
 		<td class="value"><input type="text" class="textField" name="title" id="title" value="{$title|escape}" size="60" maxlength="255" /></td>
 	</tr>
 	<tr valign="top">
-		<td width="20%" class="label"><label for="commentBody">{translate key="comments.body"}</label></td>
+		<td width="20%"><label for="commentBody">{translate key="comments.body"}</label></td>
 		<td width="80%" class="value">
 			<textarea class="textArea" name="body" id="commentBody" rows="5" cols="60">{$commentBody|escape}</textarea>
 		</td>

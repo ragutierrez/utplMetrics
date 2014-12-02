@@ -47,7 +47,7 @@
 			<br />
 			<table class="data" width="100%">
 			<tr>
-				<td width="25%" class="label">
+				<td width="25%">
 					{translate key="manager.plugins.uploadPluginDir"}
 				</td>
 				<td width="75%" class="value">
@@ -91,7 +91,7 @@
 			<br />
 			<table class="data" width="100%">
 			<tr>
-				<td width="25%" class="label">
+				<td width="25%">
 						{translate key="manager.plugins.uploadPluginDir"}
 				</td>
 				<td width="75%" class="value">

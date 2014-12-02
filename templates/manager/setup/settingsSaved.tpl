@@ -9,7 +9,7 @@
  *
  *}
 {assign var="pageTitle" value="manager.setup.journalSetup"}
-{include file="manager/setup/setupHeader.tpl"}
+{include file="`$importPath`templates/manager/setup/setupHeader.tpl"}
 
 <p>{translate key="manager.setup.journalSetupUpdated"}</p>
 

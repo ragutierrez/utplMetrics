@@ -44,7 +44,7 @@
 
 	{if $user->getLocalizedBiography()}
 		<tr valign="top">
-			<td class="label">
+			<td>
 				{translate key="user.biography"}
 			</td>
 			<td class="data">

@@ -46,7 +46,7 @@
 	{* Display the table of contents or cover page of the current issue. *}
 	<br />
 	<h3>{$issue->getIssueIdentification()|strip_unsafe_html|nl2br}</h3>
-	{include file="issue/view.tpl"}
+	{include file="`$importPath`templates/issue/view.tpl"}
 {/if}
 
 {include file="common/footer.tpl"}

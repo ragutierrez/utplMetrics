@@ -19,7 +19,7 @@
 
 <table class="data" width="100%">
 	<tr valign="top">
-		<td width="20%" class="label">{fieldLabel name="title" key="common.title"}</td>
+		<td width="20%">{fieldLabel name="title" key="common.title"}</td>
 		<td width="80%" class="value"><input type="text" id="title" name="title" value="{$title|escape}" size="40" maxlength="120" class="textField" /></td>
 	</tr>
 	<tr valign="top">

@@ -11,7 +11,7 @@
 {strip}
 {translate|assign:"pageTitleTranslated" key="submission.page.review" id=$submission->getId()}
 {assign var="pageCrumbTitle" value="submission.review"}
-{include {include file="`$importPath`templates/common/header.tpl"}}
+{include file="`$importPath`templates/common/header.tpl"}
 {/strip}
 
 <ul class="menu">

@@ -24,7 +24,7 @@
 <table class="data" width="100%">
 {if count($formLocales) > 1}
 	<tr valign="top">
-		<td width="20%" class="label">{fieldLabel name="formLocale" key="form.formLanguage"}</td>
+		<td width="20%">{fieldLabel name="formLocale" key="form.formLanguage"}</td>
 		<td width="80%" class="value">
 			{if $category}{url|assign:"categoryFormUrl" op="editCategory" path=$category->getId() escape=false}
 			{else}{url|assign:"categoryFormUrl" op="createCategory" escape=false}
@@ -35,7 +35,7 @@
 	</tr>
 {/if}
 <tr valign="top">
-	<td width="20%" class="label">{fieldLabel name="name" required="true" key="admin.categories.name"}</td>
+	<td width="20%">{fieldLabel name="name" required="true" key="admin.categories.name"}</td>
 	<td width="80%" class="value"><input type="text" name="name[{$formLocale|escape}]" value="{$name[$formLocale]|escape}" size="35" maxlength="80" id="name" class="textField" /></td>
 </tr>
 </table>

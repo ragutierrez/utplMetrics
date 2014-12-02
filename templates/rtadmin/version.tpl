@@ -29,15 +29,15 @@
 		<td class="value" width="80%"><input type="text" class="textField" name="title" id="title" value="{$title|escape}" size="60" /></td>
 	</tr>
 	<tr valign="top">
-		<td class="label"><label for="key">{translate key="rt.version.key"}</label></td>
+		<td><label for="key">{translate key="rt.version.key"}</label></td>
 		<td class="value"><input type="text" class="textField" name="key" id="key" value="{$key|escape}" size="60" /></td>
 	</tr>
 	<tr valign="top">
-		<td class="label"><label for="locale">{translate key="rt.version.locale"}</label></td>
+		<td><label for="locale">{translate key="rt.version.locale"}</label></td>
 		<td class="value"><input type="text" class="textField" name="locale" id="locale" maxlength="5" size="5" value="{$locale|escape}" /></td>
 	</tr>
 	<tr valign="top">
-		<td class="label"><label for="description">{translate key="rt.version.description"}</label></td>
+		<td><label for="description">{translate key="rt.version.description"}</label></td>
 		<td class="value">
 			<textarea class="textArea" name="description" id="description" rows="5" cols="60">{$description|escape}</textarea>
 		</td>

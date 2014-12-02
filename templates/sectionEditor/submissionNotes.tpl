@@ -107,11 +107,11 @@
 		<td class="value" width="80%"><input type="text" id="title" name="title" size="50" maxlength="90" class="textField" /></td>
 	</tr>
 	<tr valign="top">
-		<td class="label">{translate key="common.note"}</td>
+		<td>{translate key="common.note"}</td>
 		<td class="value"><textarea name="note" id="note" rows="10" cols="50" class="textArea"></textarea></td>
 	</tr>
 	<tr valign="top">
-		<td class="label">{translate key="common.file"}</td>
+		<td>{translate key="common.file"}</td>
 		<td class="value"><input type="file" name="upload" class="uploadField" /></td>
 	</tr>
 	</table>

@@ -7,7 +7,7 @@
  *
  * View issue: This adds the header and footer code to view.tpl.
  *}
-{include file="issue/header.tpl"}
+{include file="`$importPath`templates/issue/header.tpl"}
 
 {if $issue}
 	{foreach from=$pubIdPlugins item=pubIdPlugin}
@@ -24,7 +24,6 @@
 	{/foreach}
 {/if}
 
-{include file="issue/view.tpl"}
+{include file="`$importPath`templates/issue/view.tpl"}
 
 {include file="common/footer.tpl"}
-

@@ -8,7 +8,7 @@
  * Step 3 of journal setup.
  *}
 {assign var="pageTitle" value="manager.setup.guidingSubmissions"}
-{include file="manager/setup/setupHeader.tpl"}
+{include file="`$importPath`templates/manager/setup/setupHeader.tpl"}
 
 <form id="setupForm" method="post" action="{url op="saveSetup" path="3"}">
 {include file="common/formErrors.tpl"}
@@ -17,7 +17,7 @@
 <div id="locale">
 <table width="100%" class="data">
 	<tr valign="top">
-		<td width="20%" class="label">{fieldLabel name="formLocale" key="form.formLanguage"}</td>
+		<td width="20%">{fieldLabel name="formLocale" key="form.formLanguage"}</td>
 		<td width="80%" class="value">
 			{url|assign:"setupFormUrl" op="setup" path="3" escape=false}
 			{form_language_chooser form="setupForm" url=$setupFormUrl}
@@ -55,7 +55,7 @@
 	{/if}
 
 	<tr valign="top">
-		<td width="5%" class="label"><input type="text" name="submissionChecklist[{$formLocale|escape}][{$checklistId|escape}][order]" value="{$checklistItem.order|escape}" size="3" maxlength="2" class="textField" /></td>
+		<td width="5%"><input type="text" name="submissionChecklist[{$formLocale|escape}][{$checklistId|escape}][order]" value="{$checklistItem.order|escape}" size="3" maxlength="2" class="textField" /></td>
 		<td class="value"><textarea name="submissionChecklist[{$formLocale|escape}][{$checklistId|escape}][content]" id="submissionChecklist-{$checklistId|escape}" rows="3" cols="40" class="textArea">{$checklistItem.content|escape}</textarea></td>
 		<td width="100%"><input type="submit" name="delChecklist[{$checklistId|escape}]" value="{translate key="common.delete"}" class="button" /></td>
 	</tr>
@@ -99,19 +99,19 @@
 		</td>
 	</tr>
 	<tr valign="top">
-		<td class="label">{translate key="manager.setup.permissions.priorAgreement"}</td>
-		<td class="label">
+		<td>{translate key="manager.setup.permissions.priorAgreement"}</td>
+		<td>
 			<input type="checkbox" name="copyrightNoticeAgree" id="copyrightNoticeAgree" value="1"{if $copyrightNoticeAgree} checked="checked"{/if} />&nbsp;<label for="copyrightNoticeAgree">{translate key="manager.setup.authorCopyrightNoticeAgree"}</label>
 		</td>
 	</tr>
 	<tr valign="top">
-		<td class="label">{translate key="manager.setup.permissions.display"}</td>
+		<td>{translate key="manager.setup.permissions.display"}</td>
 		<td class="value">
 			<input type="checkbox" name="includeCopyrightStatement" id="includeCopyrightStatement" value="1"{if $includeCopyrightStatement} checked="checked"{/if} />&nbsp;<label for="includeCopyrightStatement">{translate key="manager.setup.includeCopyrightStatement"}</label>
 		</td>
 	</tr>
 	<tr valign="top">
-		<td class="label">{fieldLabel name=licenseURL key="submission.licenseURL"}</td>
+		<td>{fieldLabel name=licenseURL key="submission.licenseURL"}</td>
 		<td class="value">
 			<select name="licenseURLSelect" id="licenseURLSelect" onchange="document.getElementById('licenseURL').value=document.getElementById('licenseURLSelect').options[document.getElementById('licenseURLSelect').selectedIndex].value; document.getElementById('licenseURL').readOnly=(document.getElementById('licenseURL').value==''?false:true);">
 				{assign var=foundCc value=0}
@@ -130,7 +130,7 @@
 		</td>
 	</tr>
 	<tr valign="top">
-		<td class="label">{translate key="manager.setup.permissions.display"}</td>
+		<td>{translate key="manager.setup.permissions.display"}</td>
 		<td class="value">
 			<input type="checkbox" name="includeLicense" id="includeLicense" value="1"{if $includeLicense} checked="checked"{/if} />&nbsp;<label for="includeLicense">{translate key="manager.setup.includeLicense"}</label>
 		</td>
@@ -158,7 +158,7 @@
 		</td>
 	</tr>
 	<tr valign="top">
-		<td class="label">
+		<td>
 			<input type="checkbox" name="requireReviewerCompetingInterests" id="requireReviewerCompetingInterests" value="1"{if $requireReviewerCompetingInterests} checked="checked"{/if} />
 		</td>
 		<td class="value">
@@ -337,11 +337,11 @@
 
 <table width="100%" class="data">
 	<tr valign="top">
-		<td class="label"><input {if !$submissionAckEnabled}disabled="disabled" {/if}type="checkbox" name="copySubmissionAckPrimaryContact" id="copySubmissionAckPrimaryContact" value="true" {if $copySubmissionAckPrimaryContact}checked="checked"{/if}/></td>
+		<td><input {if !$submissionAckEnabled}disabled="disabled" {/if}type="checkbox" name="copySubmissionAckPrimaryContact" id="copySubmissionAckPrimaryContact" value="true" {if $copySubmissionAckPrimaryContact}checked="checked"{/if}/></td>
 		<td class="value">{fieldLabel name="copySubmissionAckPrimaryContact" key="manager.setup.notifications.copyPrimaryContact"}</td>
 	</tr>
 	<tr valign="top">
-		<td class="label"><input {if !$submissionAckEnabled}disabled="disabled" {/if}type="checkbox" name="copySubmissionAckSpecified" id="copySubmissionAckSpecified" value="true" {if $copySubmissionAckSpecified}checked="checked"{/if}/></td>
+		<td><input {if !$submissionAckEnabled}disabled="disabled" {/if}type="checkbox" name="copySubmissionAckSpecified" id="copySubmissionAckSpecified" value="true" {if $copySubmissionAckSpecified}checked="checked"{/if}/></td>
 		<td class="value">{fieldLabel name="copySubmissionAckAddress" key="manager.setup.notifications.copySpecifiedAddress"}&nbsp;&nbsp;<input {if !$submissionAckEnabled}disabled="disabled" {/if}type="text" class="textField" id="copySubmissionAckAddress" name="copySubmissionAckAddress" value="{$copySubmissionAckAddress|escape}"/></td>
 	</tr>
 	{if !$submissionAckEnabled}
@@ -366,7 +366,7 @@
 	<p>{translate key="manager.setup.metaCitationsDescription"}</p>
 	<table width="100%" class="data">
 		<tr valign="top">
-			<td width="5%" class="label">
+			<td width="5%">
 				<input type="checkbox" name="metaCitations" id="metaCitations" value="1"{if $metaCitations} checked="checked"{/if} />
 			</td>
 			<td width="95%" class="value"><label for="metaCitations">{translate key="manager.setup.citations"}</label>

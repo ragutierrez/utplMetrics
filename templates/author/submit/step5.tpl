@@ -9,7 +9,7 @@
  *
  *}
 {assign var="pageTitle" value="author.submit.step5"}
-{include file="author/submit/submitHeader.tpl"}
+{include file="`$importPath`templates/author/submit/submitHeader.tpl"}
 
 <p>{translate key="author.submit.confirmationDescription" journalTitle=$journal->getLocalizedTitle()}</p>
 

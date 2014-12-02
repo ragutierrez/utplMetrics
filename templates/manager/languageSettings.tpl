@@ -22,7 +22,7 @@
 
 <table class="data" width="100%">
 <tr valign="top">
-	<td width="20%" rowspan="2" class="label">{fieldLabel name="primaryLocale" required="true" key="locale.primary"}</td>
+	<td width="20%" rowspan="2">{fieldLabel name="primaryLocale" required="true" key="locale.primary"}</td>
 	<td width="80%" colspan="3" class="value">
 		<select id="primaryLocale" name="primaryLocale" size="1" class="selectMenu">
 			{html_options options=$availableLocales selected=$primaryLocale}

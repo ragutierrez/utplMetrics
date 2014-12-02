@@ -74,8 +74,8 @@
 <div id="container">
 
 <div id="header">
-<div id="headerTitle">
-<h1>{if $currentJournal && $currentJournal->getLocalizedInitials()}{$currentJournal->getLocalizedInitials()}&nbsp;{/if}{translate key="rt.readingTools"}</h1>
+<div id="headerTitle" style="background-color:#B0B0B0;padding-top:30px;padding-bottom:30px;margin-bottom:10px;margin-top:10px;">
+<h1 class="text-uppercase">{if $currentJournal && $currentJournal->getLocalizedInitials()}{$currentJournal->getLocalizedInitials()}&nbsp;{/if}{translate key="rt.readingTools"}</h1>
 </div>
 </div>
 

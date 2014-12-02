@@ -10,7 +10,7 @@
  *}
 {strip}
 {assign var="pageTitle" value="author.track"}
-{include {include file="`$importPath`templates/common/header.tpl"}}
+{include file="`$importPath`templates/common/header.tpl"}
 {/strip}
 
 <div id="submissionComplete">

@@ -29,17 +29,17 @@
 		<td class="value" width="80%"><input type="text" class="textField" name="title" id="title" value="{$title|escape}" size="60" /></td>
 	</tr>
 	<tr valign="top">
-		<td class="label"><label for="abbrev">{translate key="rt.context.abbrev"}</label></td>
+		<td><label for="abbrev">{translate key="rt.context.abbrev"}</label></td>
 		<td class="value"><input type="text" class="textField" name="abbrev" id="abbrev" value="{$abbrev|escape}" size="60" /></td>
 	</tr>
 	<tr valign="top">
-		<td class="label"><label for="description">{translate key="rt.context.description"}</label></td>
+		<td><label for="description">{translate key="rt.context.description"}</label></td>
 		<td class="value">
 			<textarea class="textArea" name="description" id="description" rows="5" cols="60">{$description|escape}</textarea>
 		</td>
 	</tr>
 	<tr valign="top">
-		<td class="label">{translate key="rt.admin.contexts.options"}</label></td>
+		<td>{translate key="rt.admin.contexts.options"}</label></td>
 		<td class="value">
 			<table width="100%" class="data">
 				<tr valign="top">

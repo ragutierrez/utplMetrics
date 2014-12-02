@@ -80,8 +80,8 @@
 <div id="container">
 
 <div id="header">
-	<div id="headerTitle">
-		<h1>
+	<div id="headerTitle" style="background-color:#B0B0B0;padding-top:30px;padding-bottom:30px;margin-bottom:10px;margin-top:10px;">
+		<h1 class="text-uppercase">
 		{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
 			<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogoAltText != ''}alt="{$displayPageHeaderLogoAltText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
 		{/if}
@@ -138,4 +138,3 @@
 </div>
 
 <div id="content">
-

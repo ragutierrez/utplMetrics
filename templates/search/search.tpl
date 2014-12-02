@@ -22,7 +22,7 @@
 	<form method="post" id="searchForm" action="{url op="search"}">
 		<table class="data">
 			<tr valign="top">
-				<td class="label"><label for="query">{translate key="search.searchAllCategories"}</label></td>
+				<td width="25%"><label for="query">{translate key="search.searchAllCategories"}</label></td>
 				<td class="value">
 					{capture assign="queryFilter"}{call_hook name="Templates::Search::SearchResults::FilterInput" filterName="query" filterValue=$query}{/capture}
 					{if empty($queryFilter)}
@@ -36,13 +36,13 @@
 			</tr>
 			{if $siteSearch}
 				<tr valign="top">
-					<td class="label"><label for="searchJournal">{translate key="search.withinJournal"}</label></td>
+					<td><label for="searchJournal">{translate key="search.withinJournal"}</label></td>
 					<td class="value"><select name="searchJournal" id="searchJournal" class="selectMenu">{html_options options=$journalOptions selected=$searchJournal}</select></td>
 				</tr>
 			{/if}
 			{if $hasActiveFilters}
 				<tr valign="top">
-					<td colspan="2" class="label"><h4>{translate key="search.activeFilters"}</h4></td>
+					<td colspan="2"><h4>{translate key="search.activeFilters"}</h4></td>
 				</tr>
 				{include file="search/searchFilter.tpl" displayIf="activeFilter" filterName="authors" filterValue=$authors key="search.author"}
 				{include file="search/searchFilter.tpl" displayIf="activeFilter" filterName="title" filterValue=$title key="article.title"}
@@ -64,7 +64,7 @@
 				<table class="data">
 					{if empty($authors) || empty($title) || empty($abstract) || empty($galleyFullText) || empty($suppFiles)}
 						<tr valign="top">
-							<td colspan="2" class="label"><h4>{translate key="search.searchCategories"}</h4></td>
+							<td colspan="2"><h4>{translate key="search.searchCategories"}</h4></td>
 						</tr>
 						{include file="search/searchFilter.tpl" displayIf="emptyFilter" filterName="authors" filterValue=$authors key="search.author"}
 						{include file="search/searchFilter.tpl" displayIf="emptyFilter" filterName="title" filterValue=$title key="article.title"}
@@ -81,7 +81,7 @@
 					{/if}
 					{if empty($discipline) || empty($subject) || empty($type) || empty($coverage)}
 						<tr valign="top">
-							<td colspan="2" class="label"><h4>{translate key="search.indexTerms"}</h4></td>
+							<td colspan="2"><h4>{translate key="search.indexTerms"}</h4></td>
 						</tr>
 						{include file="search/searchFilter.tpl" displayIf="emptyFilter" filterName="discipline" filterValue=$discipline key="search.discipline"}
 						{include file="search/searchFilter.tpl" displayIf="emptyFilter" filterName="subject" filterValue=$subject key="search.subject"}
@@ -107,14 +107,12 @@
 {/if}
 
 <div id="results">
-	<table width="100%" class="listing">
-		<tr><td colspan="{$numCols|escape}" class="headseparator">&nbsp;</td></tr>
+	<table width="100%" class="table table-bordered">
 		<tr class="heading" valign="bottom">
-			{if !$currentJournal}<td width="20%">{translate key="journal.journal"}</td>{/if}
-			<td width="{if !$currentJournal}20%{else}40%{/if}">{translate key="issue.issue"}</td>
-			<td width="60%" colspan="2">{translate key="article.title"}</td>
+			{if !$currentJournal}<th width="20%">{translate key="journal.journal"}</td>{/if}
+			<th width="{if !$currentJournal}20%{else}40%{/if}">{translate key="issue.issue"}</td>
+			<th width="60%" colspan="2">{translate key="article.title"}</td>
 		</tr>
-		<tr><td colspan="{$numCols|escape}" class="headseparator">&nbsp;</td></tr>
 
 		{iterate from=results item=result}
 			{assign var=publishedArticle value=$result.publishedArticle}
@@ -165,7 +163,6 @@
 				</td>
 			</tr>
 			{call_hook name="Templates::Search::SearchResults::AdditionalArticleInfo" articleId=$publishedArticle->getId() numCols=$numCols|escape}
-			<tr><td colspan="{$numCols|escape}" class="{if $results->eof()}end{/if}separator">&nbsp;</td></tr>
 		{/iterate}
 		{if $results->wasEmpty()}
 			<tr>
@@ -177,7 +174,6 @@
 					{/if}
 				</td>
 			</tr>
-			<tr><td colspan="{$numCols|escape}" class="endseparator">&nbsp;</td></tr>
 		{else}
 			<tr>
 				<td {if !$currentJournal}colspan="2" {/if}align="left">{page_info iterator=$results}</td>
@@ -187,14 +183,18 @@
 	</table>
 
 	{capture assign="syntaxInstructions"}{call_hook name="Templates::Search::SearchResults::SyntaxInstructions"}{/capture}
+	<div class="panel panel-default">
 	<p>
 		{if empty($syntaxInstructions)}
+		<div class="panel-heading">
 			{translate key="search.syntaxInstructions"}
+		</div>
 		{else}
 			{* Must be properly escaped in the controller as we potentially get HTML here! *}
 			{$syntaxInstructions}
 		{/if}
 	</p>
+	</div>
 </div>
 
 {include file="common/footer.tpl"}

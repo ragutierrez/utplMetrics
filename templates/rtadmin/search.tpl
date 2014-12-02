@@ -20,19 +20,19 @@
 		<td class="value" width="80%"><input type="text" class="textField" name="title" id="title" value="{$title|escape}" size="60" /></td>
 	</tr>
 	<tr valign="top">
-		<td class="label"><label for="url">{translate key="rt.search.url"}</label></td>
+		<td><label for="url">{translate key="rt.search.url"}</label></td>
 		<td class="value"><input type="text" class="textField" name="url" id="url" value="{$url|escape}" size="60" /></td>
 	</tr>
 	<tr valign="top">
-		<td class="label"><label for="searchUrl">{translate key="rt.search.searchUrl"}</label></td>
+		<td><label for="searchUrl">{translate key="rt.search.searchUrl"}</label></td>
 		<td class="value"><input type="text" class="textField" name="searchUrl" id="searchUrl" value="{$searchUrl|escape}" size="60" /></td>
 	</tr>
 	<tr valign="top">
-		<td class="label"><label for="searchPost">{translate key="rt.search.searchPost"}</label></td>
+		<td><label for="searchPost">{translate key="rt.search.searchPost"}</label></td>
 		<td class="value"><input type="text" class="textField" name="searchPost" id="searchPost" value="{$searchPost|escape}" size="60" /></td>
 	</tr>
 	<tr valign="top">
-		<td class="label"><label for="description">{translate key="rt.context.description"}</label></td>
+		<td><label for="description">{translate key="rt.context.description"}</label></td>
 		<td class="value">
 			<textarea class="textArea" name="description" id="description" rows="5" cols="60">{$description|escape}</textarea>
 		</td>
