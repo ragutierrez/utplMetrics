@@ -134,9 +134,11 @@ class utplPlugin extends GenericPlugin {
 			$templateMgr =& $params[0];
 			$template =& $params[1];
 
-			var_dump($template);
+			// var_dump($template);
 			$importPath = ".." . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
 			$templateMgr->assign('importPath', $importPath);
+			$baseImportPath = Request::getBaseUrl() . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
+			$templateMgr->assign('baseImportPath', $baseImportPath);
 
 			switch ($template) {
 
@@ -1039,8 +1041,6 @@ class utplPlugin extends GenericPlugin {
 				case 'article/article.tpl':
 
 					$additionalHeadData = $templateMgr->get_template_vars('additionalHeadData');
-					$baseImportPath = Request::getBaseUrl() . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
-
 
 					$template = $this->getTemplatePath() . 'templates/article/newArticleView.tpl';
 

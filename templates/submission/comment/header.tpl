@@ -58,6 +58,17 @@
 	<script type="text/javascript" src="{$baseImportPath}/bootstrap3/js/bootstrap.min.js"></script>
 
 	{$additionalHeadData}
+
+	<script type="text/javascript">
+		$(document).ready(function() {ldelim}
+			$('.block').each(function(b){ldelim}
+				$(this)[0].className="panel panel-default";
+				$(this)[0].style.padding="10px";
+				$(this)[0].style.marginTop="-10px";
+			{rdelim});
+		{rdelim});
+	</script>
+
 </head>
 <body>
 {literal}

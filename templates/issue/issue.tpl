@@ -38,8 +38,8 @@
 		{assign var=hasAccess value=0}
 	{/if}
 
-	<td class="tocTitle">{if !$hasAccess || $hasAbstract}<a href="{url page="article" op="view" path=$articlePath}">{$article->getLocalizedTitle()|strip_unsafe_html}</a>{else}{$article->getLocalizedTitle()|strip_unsafe_html}{/if}</td>
-	<td class="tocAuthors">
+	<td class="tocTitle" width="70%">{if !$hasAccess || $hasAbstract}<a href="{url page="article" op="view" path=$articlePath}">{$article->getLocalizedTitle()|strip_unsafe_html}</a>{else}{$article->getLocalizedTitle()|strip_unsafe_html}{/if}</td>
+	<td class="tocAuthors" width="15%">
 		{if (!$section.hideAuthor && $article->getHideAuthor() == $smarty.const.AUTHOR_TOC_DEFAULT) || $article->getHideAuthor() == $smarty.const.AUTHOR_TOC_SHOW}
 			{foreach from=$article->getAuthors() item=author name=authorList}
 				{$author->getFullName()|escape}{if !$smarty.foreach.authorList.last},{/if}
