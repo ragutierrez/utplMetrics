@@ -28,6 +28,7 @@ Want to contribute? Great! [contact me]
 
 * Send to [PKP Plugin Gallery]
 * Add Code Comments
+* add AJAX
 
 # License
 
