@@ -200,28 +200,25 @@ function moveAuthor(dir, authorIndex) {
 </table>
 {/foreach}
 
-<p><input type="submit" class="button" name="addAuthor" value="{translate key="author.submit.addAuthor"}" /></p>
+<p><input type="submit" class="btn btn-info" name="addAuthor" value="{translate key="author.submit.addAuthor"}" /></p>
 </div>
-<div class="separator"></div>
+<br>
 
 <div id="titleAndAbstract">
-<h3>{translate key="submission.titleAndAbstract"}</h3>
-
-<table width="100%" class="data">
-
-<tr valign="top">
-	<td width="20%">{fieldLabel name="title" required="true" key="article.title"}</td>
-	<td width="80%" class="value"><input type="text" class="textField" name="title[{$formLocale|escape}]" id="title" value="{$title[$formLocale]|escape}" size="60" maxlength="255" /></td>
-</tr>
-
-<tr valign="top">
-	<td width="20%">{if $section->getAbstractsNotRequired()==0}{fieldLabel name="abstract" key="article.abstract" required="true"}{else}{fieldLabel name="abstract" key="article.abstract"}{/if}</td>
-	<td width="80%" class="value"><textarea name="abstract[{$formLocale|escape}]" id="abstract" class="textArea" rows="15" cols="60">{$abstract[$formLocale]|escape}</textarea></td>
-</tr>
-</table>
+	<h3>{translate key="submission.titleAndAbstract"}</h3>
+	<table width="100%" class="data">
+		<tr valign="top">
+			<td width="20%">{fieldLabel name="title" required="true" key="article.title"}</td>
+			<td width="80%" class="value"><input type="text" class="textField" name="title[{$formLocale|escape}]" id="title" value="{$title[$formLocale]|escape}" size="60" maxlength="255" /></td>
+		</tr>
+		<tr valign="top">
+			<td width="20%">{if $section->getAbstractsNotRequired()==0}{fieldLabel name="abstract" key="article.abstract" required="true"}{else}{fieldLabel name="abstract" key="article.abstract"}{/if}</td>
+			<td width="80%" class="value"><textarea name="abstract[{$formLocale|escape}]" id="abstract" class="textArea" rows="15" cols="60">{$abstract[$formLocale]|escape}</textarea></td>
+		</tr>
+	</table>
 </div>
 
-<div class="separator"></div>
+<br>
 
 {if $section->getMetaIndexed()==1}
 	<div id="indexing">
@@ -342,42 +339,42 @@ function moveAuthor(dir, authorIndex) {
 		</tr>
 		</table>
 	</div>
-	<div class="separator"></div>
+	<br>
 {/if}
 
 <div id="submissionSupportingAgencies">
-<h3>{translate key="author.submit.submissionSupportingAgencies"}</h3>
-<p>{translate key="author.submit.submissionSupportingAgenciesDescription"}</p>
-
-<table width="100%" class="data">
-<tr valign="top">
-	<td width="20%">{fieldLabel name="sponsor" key="submission.agencies"}</td>
-	<td width="80%" class="value"><input type="text" class="textField" name="sponsor[{$formLocale|escape}]" id="sponsor" value="{$sponsor[$formLocale]|escape}" size="60" maxlength="255" /></td>
-</tr>
-</table>
+	<h3>{translate key="author.submit.submissionSupportingAgencies"}</h3>
+	<p>{translate key="author.submit.submissionSupportingAgenciesDescription"}</p>
+	<table width="100%" class="data">
+		<tr valign="top">
+			<td width="20%">{fieldLabel name="sponsor" key="submission.agencies"}</td>
+			<td width="80%" class="value"><input type="text" class="textField" name="sponsor[{$formLocale|escape}]" id="sponsor" value="{$sponsor[$formLocale]|escape}" size="60" maxlength="255" /></td>
+		</tr>
+	</table>
 </div>
-<div class="separator"></div>
+<br>
 
 {call_hook name="Templates::Author::Submit::AdditionalMetadata"}
 
 {if $currentJournal->getSetting('metaCitations')}
 <div id="metaCitations">
-<h3>{translate key="submission.citations"}</h3>
+	<h3>{translate key="submission.citations"}</h3>
+	<p>{translate key="author.submit.submissionCitations"}</p>
+	<table width="100%" class="data">
+		<tr valign="top">
+			<td width="20%">{fieldLabel name="citations" key="submission.citations"}</td>
+			<td width="80%" class="value"><textarea name="citations" id="citations" class="textArea" rows="15" cols="60">{$citations|escape}</textarea></td>
+		</tr>
+	</table>
 
-<p>{translate key="author.submit.submissionCitations"}</p>
-
-<table width="100%" class="data">
-<tr valign="top">
-	<td width="20%">{fieldLabel name="citations" key="submission.citations"}</td>
-	<td width="80%" class="value"><textarea name="citations" id="citations" class="textArea" rows="15" cols="60">{$citations|escape}</textarea></td>
-</tr>
-</table>
-
-<div class="separator"></div>
 </div>
 {/if}
 
-<p><input type="submit" value="{translate key="common.saveAndContinue"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')" /></p>
+<br>
+<p>
+	<input type="submit" value="{translate key="common.saveAndContinue"}" class="btn btn-primary" />
+	<input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')"/>
+</p>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
@@ -393,4 +390,3 @@ function moveAuthor(dir, authorIndex) {
 {/if}
 
 {include file="common/footer.tpl"}
-

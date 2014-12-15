@@ -18,43 +18,37 @@
 {include file="common/formErrors.tpl"}
 
 <h3>{translate key="author.submit.filesSummary"}</h3>
-<table class="listing" width="100%">
-<tr>
-	<td colspan="5" class="headseparator">&nbsp;</td>
-</tr>
-<tr class="heading" valign="bottom">
-	<td width="10%">{translate key="common.id"}</td>
-	<td width="35%">{translate key="common.originalFileName"}</td>
-	<td width="25%">{translate key="common.type"}</td>
-	<td width="20%" class="nowrap">{translate key="common.fileSize"}</td>
-	<td width="10%" class="nowrap">{translate key="common.dateUploaded"}</td>
-</tr>
-<tr>
-	<td colspan="5" class="headseparator">&nbsp;</td>
-</tr>
-{foreach from=$files item=file}
-<tr valign="top">
-	<td>{$file->getFileId()}</td>
-	<td><a class="file" href="{url op="download" path=$articleId|to_array:$file->getFileId()}">{$file->getOriginalFileName()|escape}</a></td>
-	<td>{if ($file->getFileStage() == ARTICLE_FILE_SUPP)}{translate key="article.suppFile"}{else}{translate key="author.submit.submissionFile"}{/if}</td>
-	<td>{$file->getNiceFileSize()}</td>
-	<td>{$file->getDateUploaded()|date_format:$dateFormatTrunc}</td>
-</tr>
-{foreachelse}
-<tr valign="top">
-<td colspan="5" class="nodata">{translate key="author.submit.noFiles"}</td>
-</tr>
-{/foreach}
+<table class="table table-striped" width="100%">
+	<tr class="heading" valign="bottom">
+		<th width="10%">{translate key="common.id"}</th>
+		<th width="35%">{translate key="common.originalFileName"}</th>
+		<th width="25%">{translate key="common.type"}</th>
+		<th width="20%" class="nowrap">{translate key="common.fileSize"}</th>
+		<th width="10%" class="nowrap">{translate key="common.dateUploaded"}</th>
+	</tr>
+	{foreach from=$files item=file}
+	<tr valign="top">
+		<td>{$file->getFileId()}</td>
+		<td><a class="file" href="{url op="download" path=$articleId|to_array:$file->getFileId()}">{$file->getOriginalFileName()|escape}</a></td>
+		<td>{if ($file->getFileStage() == ARTICLE_FILE_SUPP)}{translate key="article.suppFile"}{else}{translate key="author.submit.submissionFile"}{/if}</td>
+		<td>{$file->getNiceFileSize()}</td>
+		<td>{$file->getDateUploaded()|date_format:$dateFormatTrunc}</td>
+	</tr>
+	{foreachelse}
+	<tr valign="top">
+		<td colspan="5" class="nodata">{translate key="author.submit.noFiles"}</td>
+	</tr>
+	{/foreach}
 </table>
 
-<div class="separator"></div>
+<br>
 
 {if $authorFees}
 	{include file="author/submit/authorFees.tpl" showPayLinks=1}
 	{if $currentJournal->getLocalizedSetting('waiverPolicy') != ''}
 		{if $manualPayment}
 			<h3>{translate key="payment.alreadyPaid"}</h3>
-			<table class="data" width="100%">
+			<table class="table" width="100%">
 				<tr valign="top">
 				<td width="5%" align="left"><input type="checkbox" name="paymentSent" value="1" {if $paymentSent}checked="checked"{/if} /></td>
 				<td width="95%">{translate key="payment.paymentSent"}</td>
@@ -81,12 +75,15 @@
 		</table> 
 	{/if}
 
-	<div class="separator"></div>
+	<br>
 {/if}
 
 {call_hook name="Templates::Author::Submit::Step5::AdditionalItems"}
 
-<p><input type="submit" value="{translate key="author.submit.finishSubmission"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')" /></p>
+<p>
+	<input type="submit" value="{translate key="author.submit.finishSubmission"}" class="btn btn-primary"/>
+	<input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}')"/>
+</p>
 
 </form>
 

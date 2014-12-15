@@ -21,14 +21,16 @@
 <!-- 
 	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
-	<link rel="stylesheet" href="{$baseUrl}/styles/compiled.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/rt.css" type="text/css" />
  -->
+	<link rel="stylesheet" href="{$baseUrl}/styles/compiled.css" type="text/css" />
 
 	{foreach from=$stylesheets item=cssUrl}
 		<link rel="stylesheet" href="{$cssUrl}" type="text/css" />
 	{/foreach}
  
+	<script type="text/javascript" src="{$baseImportPath}/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="{$baseImportPath}/bootstrap3/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="{$baseImportPath}/bootstrap3/css/bootstrap.min.css" type="text/css" />
 
 	<!-- Base Jquery -->
@@ -55,17 +57,18 @@
 		{include file="common/minifiedScripts.tpl"}
 	{/if}
 	
-	<script type="text/javascript" src="{$baseImportPath}/js/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="{$baseImportPath}/bootstrap3/js/bootstrap.min.js"></script>
-
 	{$additionalHeadData}
 
 	<script type="text/javascript">
 		$(document).ready(function() {ldelim}
 			$('.block').each(function(b){ldelim}
 				$(this)[0].className="panel panel-default";
+			{rdelim});
+			$('.panel.panel-default').each(function(b){ldelim}
 				$(this)[0].style.padding="10px";
-				$(this)[0].style.marginTop="-10px";
+			{rdelim});
+			$('#sizer').each(function(b){ldelim}
+				$(this)[0].style.height="25px";
 			{rdelim});
 		{rdelim});
 	</script>
@@ -83,11 +86,12 @@
 {if !$pageTitleTranslated}{translate|assign:"pageTitleTranslated" key=$pageTitle}{/if}
 
 <div id="container">
-
-<div id="header">
-<div id="headerTitle" style="background-color:#B0B0B0;padding-top:30px;padding-bottom:30px;margin-bottom:10px;margin-top:10px;">
-<h1 class="text-uppercase">{if $currentJournal && $currentJournal->getLocalizedInitials()}{$currentJournal->getLocalizedInitials()}&nbsp;{/if}{translate key="rt.readingTools"}</h1>
-</div>
+<div id="header" class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10" style="background-color:#CCC;padding-top:20px;padding-bottom:20px;margin-top:10px;margin-bottom:10px;border-radius:50px;">
+		<h1 class="text-uppercase text-center" style="text-shadow: -2px 2px 2px #FFF;">{if $currentJournal && $currentJournal->getLocalizedInitials()}{$currentJournal->getLocalizedInitials()}&nbsp;{/if}{translate key="rt.readingTools"}</h1>
+	</div>
+	<div class="col-xs-1">.col-md-1</div>
 </div>
 
 <div id="body">

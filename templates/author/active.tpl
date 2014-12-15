@@ -9,18 +9,16 @@
  *
  *}
 <div id="submissions">
-<table class="listing" width="100%">
-	<tr><td colspan="6" class="headseparator">&nbsp;</td></tr>
-	<tr class="heading" valign="bottom">
-		<td width="5%">{sort_heading key="common.id" sort="id" sortOrder="ASC"}</td>
-		<td width="5%"><span class="disabled">{translate key="submission.date.mmdd"}</span><br />{sort_heading key="submissions.submit" sort="submitDate"}</td>
-		<td width="5%">{sort_heading key="submissions.sec" sort="section"}</td>
-		<td width="25%">{sort_heading key="article.authors" sort="authors"}</td>
-		<td width="35%">{sort_heading key="article.title" sort="title"}</td>
-		<td width="25%" align="right">{sort_heading key="common.status" sort="status"}</td>
-	</tr>
-	<tr><td colspan="6" class="headseparator">&nbsp;</td></tr>
-
+	<table class="table table-striped" width="100%">
+		<tr class="heading" valign="bottom">
+			<th width="5%">{sort_heading key="common.id" sort="id" sortOrder="ASC"}</th>
+			<th width="5%"><span class="disabled">{translate key="submission.date.mmdd"}</span><br />{sort_heading key="submissions.submit" sort="submitDate"}</th>
+			<th width="5%">{sort_heading key="submissions.sec" sort="section"}</th>
+			<th width="25%">{sort_heading key="article.authors" sort="authors"}</th>
+			<th width="35%">{sort_heading key="article.title" sort="title"}</th>
+			<th width="25%" align="right">{sort_heading key="common.status" sort="status"}</th>
+		</tr>
+		<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 {iterate from=submissions item=submission}
 	{assign var="articleId" value=$submission->getId()}
 	{assign var="progress" value=$submission->getSubmissionProgress()}
@@ -83,10 +81,7 @@
 		{/if}
 
 	</tr>
-
-	<tr>
-		<td colspan="6" class="{if $submissions->eof()}end{/if}separator">&nbsp;</td>
-	</tr>
+	<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 {/iterate}
 {if $submissions->wasEmpty()}
 	<tr>

@@ -12,11 +12,11 @@
 <nav class="navbar navbar-default" role="navigation">
 	<div id="container">
 		<ul class="nav navbar-nav">
-			<li id="home"><a href="{url page="index"}">{translate key="navigation.home"}</a></li>
+			<li id="home"><a href="{url page="index"}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> {translate key="navigation.home"}</a></li>
 			<li id="about"><a href="{url page="about"}">{translate key="navigation.about"}</a></li>
 
 			{if $isUserLoggedIn}
-				<li id="userHome"><a href="{url journal="index" page="user"}">{translate key="navigation.userHome"}</a></li>
+				<li id="userHome"><a href="{url journal="index" page="user"}"><span class="glyphicons glyphicons-database-minus" aria-hidden="true"></span>{translate key="navigation.userHome"}</a></li>
 			{else}
 				<li id="login"><a href="{url page="login"}">{translate key="navigation.login"}</a></li>
 				{if !$hideRegisterLink}

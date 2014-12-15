@@ -30,15 +30,15 @@
 	{$metaCustomHeaders}
 	{if $displayFavicon}<link rel="icon" href="{$faviconDir}/{$displayFavicon.uploadName|escape:"url"}" type="{$displayFavicon.mimeType|escape}" />{/if}
 	<!-- 
-	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/pkp.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
-	<link rel="stylesheet" href="{$baseUrl}/styles/compiled.css" type="text/css" />
  -->
+	<link rel="stylesheet" href="{$baseUrl}/styles/compiled.css" type="text/css" />
+	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/pkp.css" type="text/css" />
 
 	<script type="text/javascript" src="{$baseImportPath}/js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="{$baseImportPath}/bootstrap3/js/bootstrap.min.js"></script>
- 	<link rel="stylesheet" href="{$baseImportPath}/bootstrap3/css/bootstrap.min.css" type="text/css" />
+	<link rel="stylesheet" href="{$baseImportPath}/bootstrap3/css/bootstrap.min.css" type="text/css" />
 
 	{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}
 	{call_hook|assign:"rightSidebarCode" name="Templates::Common::RightSidebar"}
@@ -134,7 +134,12 @@
 		$(document).ready(function() {ldelim}
 			$('.block').each(function(b){ldelim}
 				$(this)[0].className="panel panel-default";
+			{rdelim});
+			$('.panel.panel-default').each(function(b){ldelim}
 				$(this)[0].style.padding="10px";
+			{rdelim});
+			$('#sizer').each(function(b){ldelim}
+				$(this)[0].style.height="25px";
 			{rdelim});
 		{rdelim});
 	</script>
@@ -142,14 +147,19 @@
 </head>
 <body id="pkp-{$pageTitle|replace:'.':'-'}">
 <div id="container">
-	<div id="header">
-		<div id="headerTitle" style="background-color:#B0B0B0;padding-top:30px;padding-bottom:30px;margin-bottom:10px;margin-top:10px;">
-		<h1 class="text-uppercase">
+	<div id="header" class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10" style="background-color:#CCC;padding-top:20px;padding-bottom:20px;margin-top:10px;margin-bottom:10px;border-radius:50px;">
+		<h1 class="text-uppercase text-center" style="text-shadow: -2px 2px 2px #FFF;">
 		{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
-			<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogoAltText != ''}alt="{$displayPageHeaderLogoAltText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
+			<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="15%" {if $displayPageHeaderLogoAltText != ''} alt="{$displayPageHeaderLogoAltText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
+			<br>
+			<br>
 		{/if}
 		{if $displayPageHeaderTitle && is_array($displayPageHeaderTitle)}
 			<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" {if $displayPageHeaderTitleAltText != ''}alt="{$displayPageHeaderTitleAltText|escape}"{else}alt="{translate key="common.pageHeader.altText"}"{/if} />
+			<br>
+			<br>
 		{elseif $displayPageHeaderTitle}
 			{$displayPageHeaderTitle}
 		{elseif $alternatePageHeader}

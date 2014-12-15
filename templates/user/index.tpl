@@ -29,19 +29,19 @@
 	{else}<h3>{$journal->getLocalizedTitle()|escape}</h3>{/if}
 	{assign var="journalId" value=$journal->getId()}
 	{assign var="journalPath" value=$journal->getPath()}
-	<table width="100%" class="table table-striped	">
+	<table width="100%" class="table table-striped">
 		{if $isValid.JournalManager.$journalId}
 			<tr>
 				<td><a href="{url journal=$journalPath page="manager"}">{translate key="user.role.manager"}</a></td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td align="right">{if $setupIncomplete.$journalId}[<a href="{url journal=$journalPath page="manager" op="setup" path="1"}">{translate key="manager.setup"}</a>]{/if}</td>
+				<td class="text-center">{if $setupIncomplete.$journalId}[<a href="{url journal=$journalPath page="manager" op="setup" path="1"}">{translate key="manager.setup"}</a>]{/if}</td>
 			</tr>
 		{/if}
 		{if $isValid.SubscriptionManager.$journalId}
 			<tr>
-				<td width="20%" colspan="5">&#187; <a href="{url journal=$journalPath page="subscriptionManager"}">{translate key="user.role.subscriptionManager"}</a></td>
+				<td width="20%" colspan="5"><a href="{url journal=$journalPath page="subscriptionManager"}">{translate key="user.role.subscriptionManager"}</a></td>
 			</tr>
 		{/if}
 		{if $isValid.Editor.$journalId || $isValid.SectionEditor.$journalId || $isValid.LayoutEditor.$journalId || $isValid.Copyeditor.$journalId || $isValid.Proofreader.$journalId}
@@ -63,7 +63,7 @@
 						<a href="{url journal=$journalPath page="editor" op="submissions" path="submissionsInEditing"}">{$editorSubmissionsCount[2]}<br>{translate key="common.queue.short.submissionsInEditing"}</a>
 					{else}<span class="disabled">0<br>{translate key="common.queue.short.submissionsInEditing"}</span>{/if}
 				</td>
-				<td align="right">[<a href="{url journal=$journalPath page="editor" op="createIssue"}">{translate key="editor.issues.createIssue"}</a>] [<a href="{url journal=$journalPath page="editor" op="notifyUsers"}">{translate key="editor.notifyUsers"}</a>]</td>
+				<td class="text-center">[<a href="{url journal=$journalPath page="editor" op="createIssue"}">{translate key="editor.issues.createIssue"}</a>]<br>[<a href="{url journal=$journalPath page="editor" op="notifyUsers"}">{translate key="editor.notifyUsers"}</a>]</td>
 			</tr>
 		{/if}
 		{if $isValid.SectionEditor.$journalId}
@@ -79,7 +79,7 @@
 						<a href="{url journal=$journalPath page="sectionEditor" op="index" path="submissionsInEditing"}">{$sectionEditorSubmissionsCount[1]} {translate key="common.queue.short.submissionsInEditing"}</a>
 					{else}<span class="disabled">0<br>{translate key="common.queue.short.submissionsInEditing"}</span>{/if}
 				</td>
-				<td align="right"></td>
+				<td class="text-center"></td>
 			</tr>
 		{/if}
 		{if $isValid.LayoutEditor.$journalId}
@@ -92,7 +92,7 @@
 						<a href="{url journal=$journalPath page="layoutEditor" op="submissions"}">{$layoutEditorSubmissionsCount[0]}<br>{translate key="common.queue.short.submissionsInEditing"}</a>
 					{else}<span class="disabled">0<br>{translate key="common.queue.short.submissionsInEditing"}</span>{/if}
 				</td>
-				<td align="right"></td>
+				<td class="text-center"></td>
 			</tr>
 		{/if}
 		{if $isValid.Copyeditor.$journalId}
@@ -105,7 +105,7 @@
 						<a href="{url journal=$journalPath page="copyeditor"}">{$copyeditorSubmissionsCount[0]}<br>{translate key="common.queue.short.submissionsInEditing"}</a>
 					{else}<span class="disabled">0<br>{translate key="common.queue.short.submissionsInEditing"}</span>{/if}
 				</td>
-				<td align="right"></td>
+				<td class="text-center"></td>
 			</tr>
 		{/if}
 		{if $isValid.Proofreader.$journalId}
@@ -118,7 +118,7 @@
 						<a href="{url journal=$journalPath page="proofreader"}">{$proofreaderSubmissionsCount[0]}<br>{translate key="common.queue.short.submissionsInEditing"}</a>
 					{else}<span class="disabled">0<br>{translate key="common.queue.short.submissionsInEditing"}</span>{/if}
 				</td>
-				<td align="right"></td>
+				<td class="text-center"></td>
 			</tr>
 		{/if}
 		{if $isValid.Author.$journalId}
@@ -136,7 +136,7 @@
 						<a href="{url journal=$journalPath path="completed" page="author"}">{$authorSubmissionsCount[1]}<br>{translate key="common.queue.short.completed"}</a>
 					{else}<span class="disabled">0<br>{translate key="common.queue.short.completed"}</span>{/if}
 				</td>
-				<td align="right">[<a href="{url journal=$journalPath page="author" op="submit"}">{translate key="author.submit"}</a>]</td>
+				<td class="text-center">[<a href="{url journal=$journalPath page="author" op="submit"}">{translate key="author.submit"}</a>]</td>
 			</tr>
 		{/if}
 		{if $isValid.Reviewer.$journalId}
@@ -150,7 +150,7 @@
 						<a href="{url journal=$journalPath page="reviewer"}">{$reviewerSubmissionsCount[0]}<br>{translate key="common.queue.short.active"}</a>
 					{else}<span class="disabled">0<br>{translate key="common.queue.short.active"}</span>{/if}
 				</td>
-				<td align="right"></td>
+				<td class="text-center"></td>
 			</tr>
 		{/if}
 		{* Add a row to the bottom of each table to ensure all have same width*}

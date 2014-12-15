@@ -105,7 +105,7 @@ function checkSubmissionChecklist() {
 </script>
 
 {if $authorFees}
-	{include file="author/submit/authorFees.tpl" showPayLinks=0}
+	{include file="`$importPath`templates/author/submit/authorFees.tpl" showPayLinks=0}
 	<div class="separator"></div>
 {/if}
 
@@ -172,9 +172,9 @@ function checkSubmissionChecklist() {
 </table>
 </div>{* commentsForEditor *}
 
-<div class="separator"></div>
+<br>
 
-<p><input type="submit" value="{translate key="common.saveAndContinue"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="{if $articleId}confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}'){else}document.location.href='{url page="author" escape=false}'{/if}" /></p>
+<p><input type="submit" value="{translate key="common.saveAndContinue"}" class="btn btn-primary" /> <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="{if $articleId}confirmAction('{url page="author"}', '{translate|escape:"jsparam" key="author.submit.cancelSubmission"}'){else}document.location.href='{url page="author" escape=false}'{/if}" /></p>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 

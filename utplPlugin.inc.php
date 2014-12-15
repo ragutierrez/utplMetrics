@@ -1055,19 +1055,28 @@ class utplPlugin extends GenericPlugin {
 					list($totalHtml, $totalPdf, $byMonth, $byYear) = $this->_aggregateDownloadStats($downloadStats);
 					$downloadJson = $this->_buildDownloadStatsJson($totalHtml, $totalPdf, $byMonth, $byYear);
 
-					$utplMetricsStatsJson = $this->_getUtplMetricsStats($article);
+					// $utplMetricsStatsJson = $this->_getUtplMetricsStats($article);
+
+					$application =& PKPApplication::getApplication();
+					$stats = $application->getMetrics(
+					    OJS_METRIC_TYPE_COUNTER,
+					    null,
+					    array(STATISTICS_DIMENSION_SUBMISSION_ID => $articleId, STATISTICS_DIMENSION_ASSOC_TYPE => ASSOC_TYPE_GALLEY)
+					);
+					$articleGalleysViewsAndDownloads = $stats[STATISTICS_METRIC];
+					var_dump($articleGalleysViewsAndDownloads);
+					var_dump($articleId);
 
 					if ($downloadJson || $utplMetricsStatsJson) {
 						if ($utplMetricsStatsJson) $templateMgr->assign('utplMetricsStatsJson', $utplMetricsStatsJson);
 						if ($downloadJson) $templateMgr->assign('additionalStatsJson', $downloadJson);
 
 						$jqueryImportPath = $baseImportPath . 'js/jquery-1.11.1.min.js';
-						$tooltipImportPath = $baseImportPath . 'js/alm.js';
 						$chartjsImportPath = $baseImportPath . 'js/Chart.js/Chart.js';
 
 						$templateMgr->assign('jqueryImportPath', $jqueryImportPath);
-						$templateMgr->assign('tooltipImportPath', $tooltipImportPath);
 						$templateMgr->assign('chartjsImportPath', $chartjsImportPath);
+						$templateMgr->assign('articleGalleysViewsAndDowloads', $articleGalleysViewsAndDowloads);
 
 					}
 					break;

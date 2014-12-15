@@ -5,7 +5,7 @@
  *}
 {strip}
 {assign var="pageTitle" value="plugins.generic.utplMetrics.displayName"}
-{include file="common/header.tpl"}
+{include file="`$importPath`templates/common/header.tpl"}
 {/strip}
 <!-- UTPL Metrics Form -->
 <div id="utplMetrics">
@@ -17,56 +17,38 @@
 <form method="post" action="{plugin_url path="settings"}">
 {include file="common/formErrors.tpl"}
 
-<table width="100%" class="data">
-	<tr valign="top">
-		<td width="100%" colspan=2>
-			<h3>{translate key="plugins.generic.utplMetrics.settings.altmetricAPIKey"}</h3>
-		</td>
-	</tr>
-	<tr valign="top">
-		<td width="100%" colspan=2>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="text-center">
+				{translate key="plugins.generic.utplMetrics.settings.altmetricAPIKey"}
+			</h3>
+		</div>
+		<div class="panel-body">
 			{translate key="plugins.generic.utplMetrics.settings.altmetricAPIKey.description"}
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			&nbsp;
-		</td>
-	</tr>
-	<tr valign="top">
-		<td width="40%" class="label">{fieldLabel required="true" key="plugins.generic.utplMetrics.settings.altmetricAPIKey.label"}</td>
-		<td width="60%" class="value"><input type="text" name="altmetricKey" value="{$altmetricKey|escape}" id="altmetricAPIKey" size="40" maxlength="40" class="textField" /></td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			&nbsp;
-		</td>
-	</tr>
-	<tr valign="top">
-		<td width="100%" colspan=2>
-			<h3>{translate key="plugins.generic.utplMetrics.settings.elsevierAPIKey"}</h3>
-		</td>
-	</tr>
-	<tr valign="top">
-		<td width="100%" colspan=2>
+			<div>
+				{fieldLabel required="true" key="plugins.generic.utplMetrics.settings.altmetricAPIKey.label"}
+				<input type="text" name="altmetricKey" value="{$altmetricKey|escape}" id="altmetricAPIKey" size="40" maxlength="40" class="textField"/>
+			</div>
+		</div>
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="text-center">{translate key="plugins.generic.utplMetrics.settings.elsevierAPIKey"}</h3>
+		</div>
+		<div class="panel-body">
 			{translate key="plugins.generic.utplMetrics.settings.elsevierAPIKey.description"}
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			&nbsp;
-		</td>
-	</tr>
-	<tr valign="top">
-		<td width="40%" class="label">{fieldLabel required="true" key="plugins.generic.utplMetrics.settings.elsevierAPIKey.label"}</td>
-		<td width="60%" class="value"><input type="text" name="scopusKey" value="{$scopusKey|escape}" id="elsevierAPIKey" size="40" maxlength="120" class="textField" /></td>
-	</tr>
-</table>
+			<div>
+				{fieldLabel required="true" key="plugins.generic.utplMetrics.settings.elsevierAPIKey.label"}
+				<input type="text" name="scopusKey" value="{$scopusKey|escape}" id="elsevierAPIKey" size="40" maxlength="120" class="textField"/>
+			</div>
+		</div>
+	</div>
 
 <br/>
 <br/>
-<input type="submit" name="save" class="button defaultButton" value="{translate key="common.save"}"/>
-<input type="button" class="button" value="{translate key="common.cancel"}" onclick="history.go(-1)"/>
+<input type="submit" name="save" class="btn btn-primary" value="{translate key="common.save"}"/>
+<input type="button" class="btn btn-default" value="{translate key="common.cancel"}" onclick="history.go(-1)"/>
 </form>
 
 <!-- <p><span class="formRequired">{translate key="common.requiredField"}</span></p> -->

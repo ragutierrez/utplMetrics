@@ -151,7 +151,7 @@
 				{/iterate}
 			</div>
 		{/if}
-		<div role="tabpanel" class="tab-pane" id="Metrics">
+		<div role="tabpanel" class="tab-pane text-center" id="Metrics">
 			<div id="canvas-holder" class="center-block">
 				<div id="loading">{translate key="plugins.generic.utplMetrics.loading"}</div>
 				<div id="legend" class="pull-left"></div>
@@ -207,6 +207,7 @@
 		additionalStatsJson: $.parseJSON('{$additionalStatsJson|escape:"javascript"}'),
 		altmetricUrl: '{$smarty.const.ALTMETRIC_URL}',
 		elsevierUrl: '{$smarty.const.ELSEVIER_URL}',
+		downloads:'{$articleGalleysViewsAndDowloads}',
 		minItemsToShowGraph: {ldelim}
 			minEventsForYearly: 0,
 			minEventsForMonthly: 0,
@@ -217,17 +218,7 @@
 		{rdelim},
 	{rdelim}
 
-	// Import JQuery 1.10 version, needed for the tooltip plugin
-	// that we use below. jQuery.noConflict puts the old $ back.
 	$.getScript('{$jqueryImportPath}', function() {ldelim}
-		$.getScript('{$tooltipImportPath}', function() {ldelim}
-			// Assign the last inserted JQuery version to a new variable, to avoid
-			// conflicts with the current version in $ variable.
-			options.jQuery = $;
-			// var almviz = new AlmViz(options);
-			// almviz.initViz();
-			jQuery.noConflict(true);
-		{rdelim});
 		$.getScript('{$chartjsImportPath}', function() {ldelim}
 			$( "#chart" ).click(function() {ldelim}
 				var colorDictionary = {ldelim}
@@ -270,7 +261,7 @@
 
 				$(document).ready(function() {ldelim}
 
-					$('div canvas')[0].width=$(window).width()*0.40;
+					$('div canvas')[0].width=$(window).width()*0.30;
 					var ctx = document.getElementById("chart-area").getContext("2d");
 					window.myChart = new Chart(ctx).Bar(chartData);
 
@@ -307,7 +298,7 @@
 					$('#loading').attr('style','display:none;');
 				{rdelim});
 				$(window).resize(function() {ldelim}
-					$('div canvas')[0].width=$(window).width()*0.40;
+					$('div canvas')[0].width=$(window).width()*0.30;
 					var ctx = document.getElementById("chart-area").getContext("2d");
 					window.myChart = new Chart(ctx).Bar(chartData);
 				{rdelim});
