@@ -41,7 +41,6 @@
 	</div>
 	{/if}
 	
-
 	{if $coverPagePath}
 		<div id="articleCoverImage"><img src="{$coverPagePath|escape}{$coverPageFileName|escape}"{if $coverPageAltText != ''} alt="{$coverPageAltText|escape}"{else} alt="{translate key="article.coverPage.altText"}"{/if}{if $width} width="{$width|escape}"{/if}{if $height} height="{$height|escape}"{/if}/>
 		</div>
@@ -106,29 +105,18 @@
 			</a>
 		</li>
 		<li class="pull-right">
-			<div id="citeArticle" class="btn btn-primary" onclick='window.open("{url page="rt" op="captureCite" path=$article->getBestArticleId($currentJournal)}", "popupWindow", "width=700,height=600,scrollbars=yes");'>
-				{translate key="plugins.generic.utplMetrics.tabCiteButtonText"}
-			</div>
-			<div class="btn-group" style="margin-right:15px">
+			<div class="btn-group">
 				<button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">{translate key="plugins.generic.utplMetrics.tabShare"} <span class="caret"></span>
   				</button>
   				<ul class="dropdown-menu" role="menu">
-				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.reddit.com/submit?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
-				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.reddit.16.png" alt="Reddit" height="16" width="16">Reddit</a></li>
-				    <li><a target="_blank" style="padding-left: 10px;" href="https://plus.google.com/share?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
-				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.gplus.16.png" alt="Reddit" height="16" width="16">Google+</a></li>
-				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.stumbleupon.com/submit?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
-				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.stumble.16.png.png" alt="Reddit" height="16" width="16">StumbleUpon</a></li>
-				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.facebook.com/share.php?u={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}&t={$article->getLocalizedTitle()|strip_unsafe_html}">
-				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.fb.16.png" alt="Reddit" height="16" width="16">Facebook</a></li>
-				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.linkedin.com/shareArticle?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}&title={$article->getLocalizedTitle()|strip_unsafe_html}&summary=Checkout%20this%20article%20I%20found">
-				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.linkedin.16.png" alt="Reddit" height="16" width="16">LinkedIn</a></li>
-				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.citeulike.org/posturl?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}&title={$article->getLocalizedTitle()|strip_unsafe_html}">
-				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.cul.16.png.png" alt="Reddit" height="16" width="16">CiteULike</a></li>
-				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.mendeley.com/import/?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
-				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.mendeley.16.png" alt="Reddit" height="16" width="16">Mendeley</a></li>
-				    <li><a target="_blank" style="padding-left: 10px;" href="http://twitter.com/intent/tweet?text={$article->getLocalizedTitle()|strip_unsafe_html}{if $pubIdPlugin->getPubIdType()=='doi'&& $pubId} {$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else} {url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
-				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.twtr.16.png" alt="Reddit" height="16" width="16">Twitter</a></li>
+				    <li><a target="_blank" href="http://www.reddit.com/submit?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">Reddit</a></li>
+				    <li><a target="_blank" href="https://plus.google.com/share?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">Google+</a></li>
+				    <li><a target="_blank" href="http://www.stumbleupon.com/submit?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">StumbleUpon</a></li>
+				    <li><a target="_blank" href="http://www.facebook.com/share.php?u={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}&t={$article->getLocalizedTitle()|strip_unsafe_html}">Facebook</a></li>
+				    <li><a target="_blank" href="http://www.linkedin.com/shareArticle?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}&title={$article->getLocalizedTitle()|strip_unsafe_html}&summary=Checkout%20this%20article%20I%20found">LinkedIn</a></li>
+				    <li><a target="_blank" href="http://www.citeulike.org/posturl?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}&title={$article->getLocalizedTitle()|strip_unsafe_html}">CiteULike</a></li>
+				    <li><a target="_blank" href="http://www.mendeley.com/import/?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">Mendeley</a></li>
+				    <li><a target="_blank" href="http://twitter.com/intent/tweet?text={$article->getLocalizedTitle()|strip_unsafe_html}{if $pubIdPlugin->getPubIdType()=='doi'&& $pubId} {$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else} {url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">Twitter</a></li>
 				</ul>
 			</div>
 		</li>
@@ -183,37 +171,15 @@
 		{/if}
 		{if $pubId}
 		<div role="tabpanel" class="tab-pane text-center" id="Metrics">
-			<div>
-				<h2>Datos de la revista</h2>
-				<div>
-					<div class="panel panel-primary" style="display:inline-block;">
-						<div class="panel-body">
-						<h1>VISTAS</h1>
-						</div>
-						<div id="viewsCount" class="panel-footer" style="line-height:30px">
-						</div>
-					</div>
-					<div class="panel panel-primary" style="display:inline-block;">
-						<div class="panel-body">
-							<h1>DESCARGAS</h1>
-						</div>
-						<div id="downloadsCount" class="panel-footer" style="line-height:30px">
-						</div>
-					</div>
+			<div id="canvas-holder">
+				<div id="loading">
+				{translate key="plugins.generic.utplMetrics.loading"}
 				</div>
+				<div id="legend" class="pull-left"></div>
+				<canvas id="chart-area" height="400px"/>
 			</div>
 			<div>
-				<h2>Datos Externos</h2>
-				<div id="canvas-holder">
-					<div id="loading">
-					{translate key="plugins.generic.utplMetrics.loading"}
-					</div>
-					<div id="legend" class="pull-left"></div>
-					<canvas id="chart-area" height="400px"/>
-				</div>
-				<div>
-					<span><sub>Metrics powered by <a href="http://www.altmetric.com/">ALTMETRIC</a> and <a href="http://www.elsevier.es/">ELSEVIER</a><sub></span>
-				</div>
+				<span><sub>Metrics powered by <a href="http://www.altmetric.com/">ALTMETRIC</a> and <a href="http://www.elsevier.es/">ELSEVIER</a><sub></span>
 			</div>
 		</div>
 		{/if}
@@ -260,7 +226,6 @@
 <script type="text/javascript">
 	options = {ldelim}
 		utplMetricsStatsJson: $.parseJSON('{$utplMetricsStatsJson|escape:"javascript"}'),
-		ojsStats:$.parseJSON('{$ojsStatsJson|escape:"javascript"}'),
 	{rdelim}
 
 	$.getScript('{$jqueryImportPath}', function() {ldelim}
@@ -295,14 +260,12 @@
 				sources=options.utplMetricsStatsJson[0].sources;
 
 				for (key in sources){ldelim}
-						if (sources[key]>0){ldelim}
-							chartData.labels.push(key);
-							chartData.datasets[0].fillColor.push(colorDictionary[key]);
-							chartData.datasets[0].strokeColor.push(colorDictionary[key]);
-							chartData.datasets[0].highlightFill.push(colorDictionary[key]);
-							chartData.datasets[0].highlightStroke.push(colorDictionary[key]);
-							chartData.datasets[0].data.push(sources[key]);
-					{rdelim}
+					chartData.labels.push(key);
+					chartData.datasets[0].fillColor.push(colorDictionary[key]);
+					chartData.datasets[0].strokeColor.push(colorDictionary[key]);
+					chartData.datasets[0].highlightFill.push(colorDictionary[key]);
+					chartData.datasets[0].highlightStroke.push(colorDictionary[key]);
+					chartData.datasets[0].data.push(sources[key]);
 				{rdelim}
 
 
@@ -319,34 +282,35 @@
 			    	{rdelim}
 
 					var ul = $('<ul/>');
-					ul[0].style.padding="0";
 
 					for (key in sources){ldelim}
-						if (sources[key]>0){ldelim}
-							var li = $('<li />');
-							var li_style = li[0].style;
 
-							var span = $('<span />').addClass('badge');
-							span[0].textContent=sources[key];
+						var li = $('<li />');
+						var li_style = li[0].style;
 
-							if (key!="ojsDownloads" && key!="scopus" && sources[key]>0){ldelim}
-							li[0].style.cursor="pointer";
-								li.click(function(){ldelim}
-									window.open(options.utplMetricsStatsJson[0].moreInfoURL, '_blank');
-								{rdelim});
-							{rdelim}
+						var span = $('<span />').addClass('badge');
+						span[0].textContent=sources[key];
+
+						if (key!="ojsDownloads" && key!="scopus" && sources[key]>0){ldelim}
+							var a = $('<a />');
+							a[0].textContent=key.toLocaleUpperCase();
+							a[0].href=options.utplMetricsStatsJson[0].moreInfoURL;
+							a[0].target="_blank";
+							a.appendTo(li);
+						{rdelim} else {ldelim}
 							li[0].textContent=key.toLocaleUpperCase();
-							li.addClass('list-group-item');
-							li_style.borderColor=colorDictionary[key];
-							li_style.borderLeftWidth="10px";
-							li_style.padding="2%"
-							li_style.minWidth="150px";
-							li_style.fontWeight='bold';
-							
-							span.appendTo(li);
-							span[0].style.backgroundColor=colorDictionary[key];
-							li.appendTo(ul);
-			    		{rdelim}
+						{rdelim}
+						li.addClass('list-group-item');
+						li_style.borderColor=colorDictionary[key];
+						li_style.borderLeftWidth="10px";
+						li_style.padding="2%"
+						li_style.minWidth="160px";
+						li_style.fontWeight='bold';
+						
+						span.appendTo(li);
+						span[0].style.backgroundColor=colorDictionary[key];
+						li.appendTo(ul);
+
 			    	{rdelim}
 					ul.appendTo(le);
 					$('#loading').attr('style','display:none;');

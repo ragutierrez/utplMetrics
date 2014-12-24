@@ -31,6 +31,7 @@
 	<link rel="stylesheet" href="{$baseUrl}/styles/compiled.css" type="text/css" />
 
 	<script type="text/javascript" src="{$baseImportPath}/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="{$baseImportPath}/js/heartcode-canvasloader-min.js"></script>
 	<script type="text/javascript" src="{$baseImportPath}/bootstrap3/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="{$baseImportPath}/bootstrap3/css/bootstrap.min.css" type="text/css" />
 

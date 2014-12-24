@@ -87,17 +87,15 @@
 
 <div id="container">
 <div id="header" class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-10" style="background-color:#CCC;padding-top:20px;padding-bottom:20px;margin-top:10px;margin-bottom:10px;border-radius:50px;">
+		<div class="col-sm-1 col-md-1 col-xs-1"></div>
+		<div class="col-sm-10 col-md-10 col-xs-10" style="background-color:#CCC;padding-top:20px;padding-bottom:20px;margin-top:10px;margin-bottom:10px;border-radius:50px;">
 		<h1 class="text-uppercase text-center" style="text-shadow: -2px 2px 2px #FFF;">{if $currentJournal && $currentJournal->getLocalizedInitials()}{$currentJournal->getLocalizedInitials()}&nbsp;{/if}{translate key="rt.readingTools"}</h1>
 	</div>
-	<div class="col-xs-1">.col-md-1</div>
 </div>
 
-<div id="body">
-<div id="top"></div>
-
-<div id="main">
+<div id="body" class="row">
+		<div class="col-sm-1 col-md-1 col-xs-1"></div>
+<div id="main" class="col-sm-10 col-md-10 col-xs-10">
 
 {literal}
 <script type="text/javascript">

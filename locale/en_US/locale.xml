@@ -37,4 +37,7 @@
 	<message key="plugins.generic.utplMetrics.authors.label">Authors</message>
 	<message key="plugins.generic.utplMetrics.aboutAuthors.tabTitle">About Authors</message>
 	
+	<message key="plugins.generic.utplMetrics.tabShare">Share</message>
+	<message key="plugins.generic.utplMetrics.tabCiteButtonText">Cite Article</message>
+
 </locale>

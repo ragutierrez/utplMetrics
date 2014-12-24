@@ -205,6 +205,18 @@ class utplPlugin extends GenericPlugin {
 					$template = $this->getTemplatePath() . 'templates/about/editorialTeam.tpl';
 					break;
 					
+				case 'rt/header.tpl':
+					$template = $this->getTemplatePath() . 'templates/rt/header.tpl';
+					break;
+					
+				case 'rt/printerFriendly.tpl':
+					$template = $this->getTemplatePath() . 'templates/rt/printerFriendly.tpl';
+					break;
+					
+				case 'rt/email.tpl':
+					$template = $this->getTemplatePath() . 'templates/rt/email.tpl';
+					break;
+					
 				case 'common/breadcrumbs.tpl':
 					$template = $this->getTemplatePath() . 'templates/common/breadcrumbs.tpl';
 					break;
@@ -607,22 +619,6 @@ class utplPlugin extends GenericPlugin {
 					
 				case 'user/profile.tpl':
 					$template = $this->getTemplatePath() . 'templates/user/profile.tpl';
-					break;
-					
-				case 'rt/captureCite.tpl':
-					$template = $this->getTemplatePath() . 'templates/rt/captureCite.tpl';
-					break;
-					
-				case 'rt/header.tpl':
-					$template = $this->getTemplatePath() . 'templates/rt/header.tpl';
-					break;
-					
-				case 'rt/printerFriendly.tpl':
-					$template = $this->getTemplatePath() . 'templates/rt/printerFriendly.tpl';
-					break;
-					
-				case 'rt/email.tpl':
-					$template = $this->getTemplatePath() . 'templates/rt/email.tpl';
 					break;
 					
 				case 'rtadmin/journals.tpl':
@@ -1059,18 +1055,19 @@ class utplPlugin extends GenericPlugin {
 					assert(is_a($article, 'PublishedArticle'));
 
 					$utplMetricsStatsJson = $this->_getUtplMetricsStats($article);
-					
-					$ojsStatsJson = $this->_getOJSMetricsStats($article);
+					// $articleDownloads = $this->_getOJSMetricsStats($articleId);
 
-					if ($ojsStatsJson || $utplMetricsStatsJson) {
+					// if ($articleDownloads) {
+					if ($utplMetricsStatsJson) {
+					// if ($articleDownloads || $utplMetricsStatsJson) {
 						if ($utplMetricsStatsJson) $templateMgr->assign('utplMetricsStatsJson', $utplMetricsStatsJson);
-						if ($ojsStatsJson) $templateMgr->assign('ojsStatsJson', $ojsStatsJson);
 
 						$jqueryImportPath = $baseImportPath . 'js/jquery-1.11.1.min.js';
 						$chartjsImportPath = $baseImportPath . 'js/Chart.js/Chart.js';
 
 						$templateMgr->assign('jqueryImportPath', $jqueryImportPath);
 						$templateMgr->assign('chartjsImportPath', $chartjsImportPath);
+						// $templateMgr->assign('articleDownloads', $articleDownloads);
 
 					}
 					break;
@@ -1091,7 +1088,7 @@ class utplPlugin extends GenericPlugin {
 	* @param $doi article DOI
 	* @return array
 	*/
-	function _getCitas($doi)
+	function _getCitas($doi,$articleId)
 	{
 
 		$citas=array();
@@ -1127,7 +1124,10 @@ class utplPlugin extends GenericPlugin {
 			$altmetricMoreInfo="#";
 		}
 
+
+		$citas+=array('ojsDownloads'=>$this->_getOJSMetricsStats($articleId));
 		return array($citas,$altmetricMoreInfo);
+
 	}
 
 	/**
@@ -1137,15 +1137,15 @@ class utplPlugin extends GenericPlugin {
 	 */
 	function _getUtplMetricsStats($article) {
 
+		$articleId = $article->getId();
+		
 		$doi = $article->getPubId('doi');
-		$sources = $this->_getCitas($doi)[0];
-
 		$response = array(
 			array(
 				'doi' => $doi,
 				'title' => $article->getLocalizedTitle(),
-				'sources' => $sources,
-				'moreInfoURL' => $this->_getCitas($doi)[1]
+				'sources' => $this->_getCitas($doi,$articleId)[0],
+				'moreInfoURL' => $this->_getCitas($doi,$articleId)[1]
 		));
 
 		$jsonManager = new JSONManager();
@@ -1155,14 +1155,9 @@ class utplPlugin extends GenericPlugin {
 	/**
 	 *
 	 * @param $article Article
-	 * @return array
+	 * @return int number of downloads
 	*/
-	function _getOJSMetricsStats($article){
-		$ojsSources = array();
-		$ojsSources+=array('ojs_Views'=>($article->getViews()));
-
-		$articleId = $article->getId();
-
+	function _getOJSMetricsStats($articleId){
 		$application =& PKPApplication::getApplication();
 		$stats = $application->getMetrics(
 		    OJS_METRIC_TYPE_COUNTER,
@@ -1171,13 +1166,10 @@ class utplPlugin extends GenericPlugin {
 		);
 
 		if ($stats[0][STATISTICS_METRIC]){
-			$ojsSources+=array('ojs_Downloads'=>$stats[0][STATISTICS_METRIC]);
+			return $stats[0][STATISTICS_METRIC];
 		}
 		else {
-			$ojsSources+=array('ojs_Downloads'=>0);
+			return 0;
 		}
-
-		$jsonManager = new JSONManager();
-		return $jsonManager->encode($ojsSources);
 	}
 }

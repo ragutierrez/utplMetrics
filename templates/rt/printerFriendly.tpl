@@ -69,7 +69,7 @@
 {if $galley}
 	{$galley->getHTMLContents()}
 {else}
-
+<h1>PLGP</h1>
 	<h3>{$article->getLocalizedTitle()|strip_unsafe_html}</h3>
 	<div><em>{$article->getAuthorString()|escape}</em></div>
 	{if $article->getLocalizedAbstract()}
