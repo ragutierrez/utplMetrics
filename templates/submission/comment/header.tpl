@@ -63,7 +63,7 @@
 			$('.block').each(function(b){ldelim}
 				$(this)[0].className="panel panel-default";
 			{rdelim});
-			$('.panel.panel-default').each(function(b){ldelim}
+			$('#sidebar .panel.panel-default').each(function(b){ldelim}
 				$(this)[0].style.padding="10px";
 			{rdelim});
 			$('#sizer').each(function(b){ldelim}
