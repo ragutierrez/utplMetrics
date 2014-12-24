@@ -186,18 +186,18 @@
 			<div>
 				<h2>Datos de la revista</h2>
 				<div>
-					<div class="panel panel-primary" style="display:inline-block;">
+					<div class="panel panel-default" style="display:inline-block;padding:0px;">
 						<div class="panel-body">
 						<h1>VISTAS</h1>
 						</div>
-						<div id="viewsCount" class="panel-footer" style="line-height:30px;font-size:36px;font-weight:bold;color:#337ab7">
+						<div id="viewsCount" class="panel-footer" style="line-height:30px;font-size:36px;font-weight:bold;background-color:#337ab7;color:#FFF">
 						</div>
 					</div>
-					<div class="panel panel-primary" style="display:inline-block;">
+					<div class="panel panel-default" style="display:inline-block;padding:0px;">
 						<div class="panel-body">
 							<h1>DESCARGAS</h1>
 						</div>
-						<div id="downloadsCount" class="panel-footer" style="line-height:30px;font-size:36px;font-weight:bold;color:#337ab7">
+						<div id="downloadsCount" class="panel-footer" style="line-height:30px;font-size:36px;font-weight:bold;background-color:#337ab7;color:#FFF">
 						</div>
 					</div>
 				</div>
