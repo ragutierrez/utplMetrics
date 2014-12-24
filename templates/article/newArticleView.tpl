@@ -190,14 +190,14 @@
 						<div class="panel-body">
 						<h1>VISTAS</h1>
 						</div>
-						<div id="viewsCount" class="panel-footer" style="line-height:30px">
+						<div id="viewsCount" class="panel-footer" style="line-height:30px;font-size:36px;font-weight:bold;color:#337ab7">
 						</div>
 					</div>
 					<div class="panel panel-primary" style="display:inline-block;">
 						<div class="panel-body">
 							<h1>DESCARGAS</h1>
 						</div>
-						<div id="downloadsCount" class="panel-footer" style="line-height:30px">
+						<div id="downloadsCount" class="panel-footer" style="line-height:30px;font-size:36px;font-weight:bold;color:#337ab7">
 						</div>
 					</div>
 				</div>
@@ -308,6 +308,9 @@
 
 				$(document).ready(function() {ldelim}
 
+					$("#viewsCount")[0].textContent=options.ojsStats.ojs_Views;
+					$("#downloadsCount")[0].textContent=options.ojsStats.ojs_Downloads;
+
 					$('div canvas')[0].width=$(window).width()*0.30;
 					var ctx = document.getElementById("chart-area").getContext("2d");
 					window.myChart = new Chart(ctx).Bar(chartData);
@@ -329,7 +332,7 @@
 							var span = $('<span />').addClass('badge');
 							span[0].textContent=sources[key];
 
-							if (key!="ojsDownloads" && key!="scopus" && sources[key]>0){ldelim}
+							if (key!="scopus" && sources[key]>0){ldelim}
 							li[0].style.cursor="pointer";
 								li.click(function(){ldelim}
 									window.open(options.utplMetricsStatsJson[0].moreInfoURL, '_blank');
