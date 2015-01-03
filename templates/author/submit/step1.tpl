@@ -19,7 +19,7 @@
 
 <p>{translate key=$howToKeyName supportName=$journalSettings.supportName supportEmail=$journalSettings.supportEmail supportPhone=$journalSettings.supportPhone}</p>
 
-<div class="separator"></div>
+<br>
 
 <form id="submit" method="post" action="{url op="saveSubmit" path=$submitStep}" onsubmit="return checkSubmissionChecklist()">
 {include file="common/formErrors.tpl"}
@@ -54,7 +54,7 @@
 
 </div>{* section *}
 
-<div class="separator"></div>
+<br>
 
 {/if}{* if count($sectionOptions) == 2 *}
 
@@ -77,7 +77,7 @@
 		</tr>
 	</table>
 
-	<div class="separator"></div>
+	<br>
 
 	</div>{* submissionLocale *}
 {/if}{* count($supportedSubmissionLocaleNames) == 1 *}
@@ -106,7 +106,7 @@ function checkSubmissionChecklist() {
 
 {if $authorFees}
 	{include file="`$importPath`templates/author/submit/authorFees.tpl" showPayLinks=0}
-	<div class="separator"></div>
+	<br>
 {/if}
 
 {if $currentJournal->getLocalizedSetting('submissionChecklist')}
@@ -128,7 +128,7 @@ function checkSubmissionChecklist() {
 {if $notFirstChecklistItem}
 	</table>
 	</div>{* checklist *}
-	<div class="separator"></div>
+	<br>
 {/if}
 
 {/if}{* if count($sectionOptions) <= 1 *}
@@ -149,7 +149,7 @@ function checkSubmissionChecklist() {
 {/if}{* $journalSettings.copyrightNoticeAgree *}
 </div>{* copyrightNotice *}
 
-<div class="separator"></div>
+<br>
 
 {/if}{* $currentJournal->getLocalizedSetting('copyrightNotice') != '' *}
 
@@ -159,7 +159,7 @@ function checkSubmissionChecklist() {
 {$currentJournal->getLocalizedSetting('privacyStatement')|nl2br}
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="commentsForEditor">
 <h3>{translate key="author.submit.commentsForEditor"}</h3>

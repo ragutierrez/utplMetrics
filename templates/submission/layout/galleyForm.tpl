@@ -177,7 +177,9 @@
 {/if}
 <br />
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="submissionEditing" path=$articleId escape=false}'" /></p>
+<p>
+	<input type="submit" value="{translate key="common.save"}" class="btn btn-primary" />
+	<input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="submissionEditing" path=$articleId escape=false}'" /></p>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 

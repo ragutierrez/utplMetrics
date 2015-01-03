@@ -23,11 +23,11 @@
 
 {include file="author/submission/summary.tpl"}
 
-<div class="separator"></div>
+<br>
 
 {include file="author/submission/peerReview.tpl"}
 
-<div class="separator"></div>
+<br>
 
 {include file="author/submission/editorDecision.tpl"}
 

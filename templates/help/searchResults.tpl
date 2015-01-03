@@ -60,7 +60,7 @@
 		{/if}
 		</div>
 
-		<div class="separator"></div>
+		<br>
 
 		<div id="helpSearch">
 			<h4>{translate key="help.search"}</h4>

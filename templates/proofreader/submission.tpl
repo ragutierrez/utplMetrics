@@ -17,15 +17,15 @@
 
 {include file="proofreader/submission/summary.tpl"}
 
-<div class="separator"></div>
+<br>
 
 {include file="proofreader/submission/layout.tpl"}
 
-<div class="separator"></div>
+<br>
 
 {include file="proofreader/submission/proofread.tpl"}
 
-<div class="separator"></div>
+<br>
 
 {include file="proofreader/submission/scheduling.tpl"}
 

@@ -16,15 +16,15 @@
 
 {include file="layoutEditor/submission/summary.tpl"}
 
-<div class="separator"></div>
+<br>
 
 {include file="layoutEditor/submission/layout.tpl"}
 
-<div class="separator"></div>
+<br>
 
 {include file="layoutEditor/submission/proofread.tpl"}
 
-<div class="separator"></div>
+<br>
 
 {include file="layoutEditor/submission/scheduling.tpl"}
 

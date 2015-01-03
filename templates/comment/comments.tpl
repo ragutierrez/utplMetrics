@@ -74,7 +74,7 @@
 
 <br /><br />
 
-<div class="separator"></div>
+<br>
 
 {if $comments}<h3>{translate key="comments.replies"}</h3>{/if}
 

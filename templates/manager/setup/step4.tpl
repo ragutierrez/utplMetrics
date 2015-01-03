@@ -167,7 +167,7 @@ function setRegAllowOpts(form) {
 
 </div><!-- securitySettings -->
 
-<div class="separator"></div>
+<br>
 
 <div id="publicationScheduling">
 <h3>4.2 {translate key="manager.setup.publicationScheduling"}</h3>
@@ -236,7 +236,7 @@ function setRegAllowOpts(form) {
 </div>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="publicIdentifier">
 <h3>4.3 {translate key="manager.setup.publicIdentifier"}</h3>
@@ -276,7 +276,7 @@ function setRegAllowOpts(form) {
 </table>
 </div><!-- pageNumberIdentifier -->
 </div><!-- publicIdentifier -->
-<div class="separator"></div>
+<br>
 
 <div id="announcementsSection">
 <h3>4.4 {translate key="manager.setup.announcements"}</h3>
@@ -317,7 +317,7 @@ function setRegAllowOpts(form) {
 </div><!-- announcementsIntroductionSection -->
 </div><!-- announcementsSection -->
 
-<div class="separator"></div>
+<br>
 
 <div id="copyediting">
 <h3>4.5 {translate key="manager.setup.copyediting"}</h3>
@@ -346,7 +346,7 @@ function setRegAllowOpts(form) {
 </p>
 </div><!-- copyeditInstructionsSection -->
 
-<div class="separator"></div>
+<br>
 
 <div id="layoutAndGalleys">
 <h3>4.6 {translate key="manager.setup.layoutAndGalleys"}</h3>
@@ -415,7 +415,7 @@ function setRegAllowOpts(form) {
 <textarea name="refLinkInstructions[{$formLocale|escape}]" id="refLinkInstructions" rows="12" cols="60" class="textArea">{$refLinkInstructions[$formLocale]|escape}</textarea>
 </div><!-- refLinkInstructionsSection -->
 </div>
-<div class="separator"></div>
+<br>
 
 <div id="proofreading">
 <h3>4.7 {translate key="manager.setup.proofreading"}</h3>
@@ -443,10 +443,12 @@ function setRegAllowOpts(form) {
 </div>
 </div>
 
-<div class="separator"></div>
+<br>
 
 
-<p><input type="submit" value="{translate key="common.saveAndContinue"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="setup" escape=false}'" /></p>
+<p>
+	<input type="submit" value="{translate key="common.saveAndContinue"}" class="btn btn-primary" />
+	<input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="setup" escape=false}'" /></p>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 

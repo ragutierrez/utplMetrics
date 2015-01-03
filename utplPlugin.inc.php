@@ -134,6 +134,7 @@ class utplPlugin extends GenericPlugin {
 			$templateMgr =& $params[0];
 			$template =& $params[1];
 
+			// var_dump($template);
 			$importPath = ".." . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
 			$templateMgr->assign('importPath', $importPath);
 			$baseImportPath = Request::getBaseUrl() . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;

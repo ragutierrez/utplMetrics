@@ -43,7 +43,7 @@ $(document).ready(function() {
 {translate key="issue.issue"}: <select name="issue" class="selectMenu" onchange="if(this.options[this.selectedIndex].value > 0) location.href='{url|escape:"javascript" op="issueToc" path="ISSUE_ID" escape=false}'.replace('ISSUE_ID', this.options[this.selectedIndex].value)" size="1">{html_options options=$issueOptions|truncate:40:"..." selected=$issueId}</select>
 </form>
 
-<div class="separator"></div>
+<br>
 
 <ul class="menu">
 	<li class="current"><a href="{url op="issueToc" path=$issueId}">{translate key="issue.toc"}</a></li>
@@ -118,7 +118,7 @@ $(document).ready(function() {
 {foreachelse}
 <p><em>{translate key="editor.issues.noArticles"}</em></p>
 
-<div class="separator"></div>
+<br>
 {/foreach}
 
 <input type="submit" value="{translate key="common.save"}" class="button defaultButton" />

@@ -21,7 +21,7 @@
 
 <p><a href="{$publisherUrl}">{$publisherInstitution|escape}</a></p>
 </div>
-<div class="separator"></div>
+<br>
 {/if}
 
 {if not (empty($sponsorNote) && empty($sponsors))}
@@ -42,7 +42,7 @@
   </ul>
 {/if}
 </div>
-<div class="separator"></div>
+<br>
 {/if}
 
 {if !empty($contributorNote) || (!empty($contributors) && !empty($contributors[0].name))}

@@ -197,7 +197,7 @@ function prepBlockFields() {
 {/if}
 </div>
 </div>
-<div class="separator"></div>
+<br>
 
 <div id="journalHomepageContent">
 <h3>5.2 {translate key="manager.setup.journalHomepageContent"}</h3>
@@ -260,7 +260,7 @@ function prepBlockFields() {
 <p><textarea name="additionalHomeContent[{$formLocale|escape}]" id="additionalHomeContent" rows="12" cols="60" class="textArea">{$additionalHomeContent[$formLocale]|escape}</textarea></p>
 </div>
 </div>
-<div class="separator"></div>
+<br>
 
 <div id="journalPageHeaderInfo">
 <h3>5.3 {translate key="manager.setup.journalPageHeader"}</h3>
@@ -352,7 +352,7 @@ function prepBlockFields() {
 <p><textarea name="journalPageHeader[{$formLocale|escape}]" id="journalPageHeader" rows="12" cols="60" class="textArea">{$journalPageHeader[$formLocale]|escape}</textarea></p>
 </div>
 </div>
-<div class="separator"></div>
+<br>
 
 <div id="journalPageFooterInfo">
 <h3>5.4 {translate key="manager.setup.journalPageFooter"}</h3>
@@ -362,7 +362,7 @@ function prepBlockFields() {
 <p><textarea name="journalPageFooter[{$formLocale|escape}]" id="journalPageFooter" rows="12" cols="60" class="textArea">{$journalPageFooter[$formLocale]|escape}</textarea></p>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="navigationBar">
 <h3>5.5 {translate key="manager.setup.navigationBar"}</h3>
@@ -431,7 +431,7 @@ function prepBlockFields() {
 <p><input type="submit" name="addNavItem" value="{translate key="manager.setup.addNavItem"}" class="button" /></p>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="journalLayout">
 <h3>5.6 {translate key="manager.setup.journalLayout"}</h3>
@@ -516,7 +516,7 @@ function prepBlockFields() {
 <input type="hidden" name="blockSelectRight" value="" />
 <input type="hidden" name="blockUnselected" value="" />
 </div>
-<div class="separator"></div>
+<br>
 <div id="setupInfo">
 <h3>5.7 {translate key="manager.setup.information"}</h3>
 
@@ -535,7 +535,7 @@ function prepBlockFields() {
 <p><textarea name="librarianInformation[{$formLocale|escape}]" id="librarianInformation" rows="12" cols="60" class="textArea">{$librarianInformation[$formLocale]|escape}</textarea></p></div>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="lists">
 <h3>5.8 {translate key="manager.setup.lists"}</h3>
@@ -552,9 +552,11 @@ function prepBlockFields() {
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 
-<p><input type="submit" onclick="prepBlockFields()" value="{translate key="common.saveAndContinue"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="setup" escape=false}'" /></p>
+<p>
+	<input type="submit" onclick="prepBlockFields()" value="{translate key="common.saveAndContinue"}" class="btn btn-primary" />
+	<input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="setup" escape=false}'" /></p>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 

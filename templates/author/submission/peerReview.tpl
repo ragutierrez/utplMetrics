@@ -106,7 +106,7 @@
 </table>
 
 {if !$smarty.section.round.last}
-	<div class="separator"></div>
+	<br>
 {/if}
 
 {/section}

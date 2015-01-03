@@ -68,7 +68,7 @@
 <p><input type="submit" name="addChecklist" value="{translate key="manager.setup.addChecklistItem"}" class="button" /></p>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="permissions">
 <h3>3.2 {translate key="submission.permissions"}</h3>
@@ -141,7 +141,7 @@
 <p><input type="button" value="{translate key="manager.setup.resetPermissions"}" class="button" onclick="confirmAction('{url op="resetPermissions"}', '{translate|escape:"jsparam" key="manager.setup.confirmResetLicense"}')" /></p>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="competingInterests">
 <h3>3.3 {translate key="manager.setup.competingInterests"}</h3>
@@ -171,7 +171,7 @@
 <p><textarea name="competingInterestGuidelines[{$formLocale|escape}]" id="competingInterestGuidelines" rows="12" cols="60" class="textArea">{$competingInterestGuidelines[$formLocale]|escape}</textarea></p>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="forAuthorsToIndexTheirWork">
 <h3>3.4 {translate key="manager.setup.forAuthorsToIndexTheirWork"}</h3>
@@ -319,7 +319,7 @@
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="registerJournalForIndexing">
 <h3>3.5 {translate key="manager.setup.registerJournalForIndexing"}</h3>
@@ -328,7 +328,7 @@
 <p>{translate key="manager.setup.registerJournalForIndexingDescription" oaiUrl=$oaiUrl siteUrl=$baseUrl}</p>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="notifications">
 <h3>3.6 {translate key="manager.setup.notifications"}</h3>
@@ -354,7 +354,7 @@
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="citationAssistant">
 <h3>3.7 {translate key="manager.setup.citationAssistant"}</h3>
@@ -416,9 +416,11 @@
 {/if}
 </div>
 
-<div class="separator"></div>
+<br>
 
-<p><input type="submit" value="{translate key="common.saveAndContinue"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="setup" escape=false}'" /></p>
+<p>
+	<input type="submit" value="{translate key="common.saveAndContinue"}" class="btn btn-primary" />
+	<input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="setup" escape=false}'" /></p>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 

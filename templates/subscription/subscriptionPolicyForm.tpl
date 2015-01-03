@@ -84,7 +84,7 @@
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="additionalInformation">
 <h3>{translate key="manager.subscriptionPolicies.subscriptionAdditionalInformation"}</h3>
@@ -96,7 +96,7 @@
 </p>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="expiry">
 <h3>{translate key="manager.subscriptionPolicies.expiry"}</h3>
@@ -131,7 +131,7 @@
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="expiryReminders">
 <h3>{translate key="manager.subscriptionPolicies.expiryReminders"}</h3>
@@ -155,7 +155,7 @@
 {/if}
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="onlinePaymentNotifications">
 <h3>{translate key="manager.subscriptionPolicies.onlinePaymentNotifications"}</h3>
@@ -187,7 +187,7 @@
 {/if}
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="openAccessOptions">
 <h3>{translate key="manager.subscriptionPolicies.openAccessOptions"}</h3>
@@ -228,10 +228,12 @@
 </p>
 </div>
 
-<div class="separator"></div>
+<br>
 
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="subscriptionPolicies" escape=false}'" /></p>
+<p>
+	<input type="submit" value="{translate key="common.save"}" class="btn btn-primary" />
+	<input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="subscriptionPolicies" escape=false}'" /></p>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 

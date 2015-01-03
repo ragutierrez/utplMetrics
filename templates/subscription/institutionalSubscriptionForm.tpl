@@ -59,7 +59,7 @@
 </table>
 
 <br />
-<div class="separator"></div>
+<br>
 <br />
 
 <table class="data" width="100%">
@@ -116,7 +116,7 @@
 	</tr>
 </table>
 
-<div class="separator"></div>
+<br>
 <br />
 
 <table class="data" width="100%">
@@ -133,7 +133,7 @@
 </table>
 
 <br />
-<div class="separator"></div>
+<br>
 <br />
 
 <table class="data" width="100%">
@@ -143,7 +143,7 @@
 </tr>
 </table>
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> {if not $subscriptionId}<input type="submit" name="createAnother" value="{translate key="manager.subscriptions.form.saveAndCreateAnother"}" class="button" /> {/if}<input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="subscriptions" path="institutional" escape=false}'" /></p>
+<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> {if not $subscriptionId}<input type="submit" name="createAnother" value="{translate key="manager.subscriptions.form.saveAndCreateAnother"}" class="button" /> {/if}<input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="subscriptions" path="institutional" escape=false}'" /></p>
 
 </form>
 

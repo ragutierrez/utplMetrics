@@ -83,7 +83,7 @@
 
 {/foreach}
 </div>
-<div class="separator"></div>
+<br>
 <div id="serverInformation">
 <h3>{translate key="admin.serverInformation"}</h3>
 <p>{translate key="admin.serverInformationDescription"}</p>

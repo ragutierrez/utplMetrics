@@ -60,7 +60,7 @@
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="supplementaryFileUpload">
 <h3>{translate key="author.submit.supplementaryFileUpload"}</h3>

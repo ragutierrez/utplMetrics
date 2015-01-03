@@ -79,7 +79,7 @@ function confirmSubmissionCheck() {
 	</tr>
 </table>
 </div>
-<div class="separator"></div>
+<br>
 <div id="reviewSchedule">
 <h3>{translate key="reviewer.article.reviewSchedule"}</h3>
 <table width="100%" class="data">
@@ -101,7 +101,7 @@ function confirmSubmissionCheck() {
 </tr>
 </table>
 </div>
-<div class="separator"></div>
+<br>
 
 <div id="reviewSteps">
 <h3>{translate key="reviewer.article.reviewSteps"}</h3>
@@ -353,7 +353,7 @@ function confirmSubmissionCheck() {
 </table>
 </div>
 {if $journal->getLocalizedSetting('reviewGuidelines') != ''}
-<div class="separator"></div>
+<br>
 <div id="reviewerGuidelines">
 <h3>{translate key="reviewer.article.reviewerGuidelines"}</h3>
 <p>{$journal->getLocalizedSetting('reviewGuidelines')|nl2br}</p>

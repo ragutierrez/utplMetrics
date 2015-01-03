@@ -62,7 +62,7 @@
 
 {include file="sectionEditor/submission/summary.tpl"}
 
-<div class="separator"></div>
+<br>
 <div id="submissionEventLog">
 <h3>{translate key="submission.history.submissionEventLog"} - {translate key="submission.history.recentLogEntries"}</h3>
 <table width="100%" class="listing">
@@ -108,7 +108,7 @@
 </div>
 <br /><br />
 
-<div class="separator"></div>
+<br>
 <div id="submissionEmailLog">
 <h3>{translate key="submission.history.submissionEmailLog"} - {translate key="submission.history.recentLogEntries"}</h3>
 
@@ -149,7 +149,7 @@
 </div>
 <br /><br />
 
-<div class="separator"></div>
+<br>
 <div id="submissionNotes">
 <h3>{translate key="submission.notes"}</h3>
 

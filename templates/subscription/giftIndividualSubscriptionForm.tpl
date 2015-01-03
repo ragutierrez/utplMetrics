@@ -52,7 +52,7 @@
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="giftRecipient">
 <h3>{translate key="gifts.recipient"}</h3>
@@ -85,7 +85,7 @@
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="giftDetails">
 <h3>{translate key="gifts.details"}</h3>
@@ -117,7 +117,7 @@
 </tr>
 </table>
 
-<p><input type="submit" value="{translate key="common.continue"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="index" escape=false}'" /></p>
+<p><input type="submit" value="{translate key="common.continue"}" class="btn btn-primary" /> <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url page="index" escape=false}'" /></p>
 
 </form>
 

@@ -97,6 +97,6 @@
 {else}
 	{translate key="manager.payment.paymentId"} {translate key="manager.payment.notFound"}
 {/if}
-<p><input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="manager" op="viewPayments" escape=false}'" /></p>
+<p><input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url page="manager" op="viewPayments" escape=false}'" /></p>
 {include file="common/footer.tpl"}
 

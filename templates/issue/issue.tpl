@@ -76,6 +76,6 @@
 {/foreach}
 
 {if !$smarty.foreach.sections.last}
-<div class="separator"></div>
+<br>
 {/if}
 {/foreach}

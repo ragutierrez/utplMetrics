@@ -61,7 +61,7 @@
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 {/if}
 
 <div id="titleAndAbstract">
@@ -82,7 +82,7 @@
 	</tr>
 </table>
 </div>
-<div class="separator"></div>
+<br>
 <div id="cover">
 <h3>{translate key="editor.article.cover"}</h3>
 
@@ -101,7 +101,7 @@
 	</tr>
 </table>
 </div>
-<div class="separator"></div>
+<br>
 <div id="indexing">
 <h3>{translate key="submission.indexing"}</h3>
 	
@@ -175,7 +175,7 @@
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="supportingAgencies">
 <h3>{translate key="submission.supportingAgencies"}</h3>

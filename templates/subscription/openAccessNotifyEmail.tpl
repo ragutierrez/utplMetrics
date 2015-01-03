@@ -80,7 +80,7 @@ Content-Transfer-Encoding: quoted-printable
 					</table>
 				{/foreach}
 			{if !$smarty.foreach.sections.last}
-				<div class="separator"></div>
+				<br>
 			{/if}
 		{/foreach}
 		<pre>{literal}{$templateSignature}{/literal}</pre>

@@ -108,7 +108,7 @@
 
 						<p>{$user->getLocalizedBiography()|nl2br|strip_unsafe_html}</p>
 
-						<input type="button" onclick="window.close()" value="{translate key="common.close"}" class="button defaultButton" />
+						<input type="button" onclick="window.close()" value="{translate key="common.close"}" class="btn btn-primary" />
 
 						</div><!-- content -->
 					</div><!-- mainContent -->

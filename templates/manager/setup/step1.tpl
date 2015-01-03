@@ -79,7 +79,7 @@
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="principalContact">
 <h3>1.2 {translate key="manager.setup.principalContact"}</h3>
@@ -118,7 +118,7 @@
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="technicalSupportContact">
 <h3>1.3 {translate key="manager.setup.technicalSupportContact"}</h3>
@@ -140,7 +140,7 @@
 	</tr>
 </table>
 </div>
-<div class="separator"></div>
+<br>
 <div id="setupEmails">
 <h3>1.4 {translate key="manager.setup.emails"}</h3>
 <table width="100%" class="data">
@@ -166,7 +166,7 @@
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 <div id="setupPublisher">
 <h3>1.5 {translate key="manager.setup.publisher"}</h3>
 
@@ -191,7 +191,7 @@
 	</tr>
 </table>
 </div>
-<div class="separator"></div>
+<br>
 <div id="sponsors">
 <h3>1.6 {translate key="manager.setup.sponsors"}</h3>
 
@@ -235,7 +235,7 @@
 <p><input type="submit" name="addSponsor" value="{translate key="manager.setup.addSponsor"}" class="button" /></p>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="contributors">
 <h3>1.7 {translate key="manager.setup.contributors"}</h3>
@@ -280,7 +280,7 @@
 <p><input type="submit" name="addContributor" value="{translate key="manager.setup.addContributor"}" class="button" /></p>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="searchEngineIndexing">
 <h3>1.8 {translate key="manager.setup.searchEngineIndexing"}</h3>
@@ -307,7 +307,7 @@
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 
 
 <h3>1.9 {translate key="manager.setup.history"}</h3>
@@ -324,10 +324,12 @@
 </table>
 
 
-<div class="separator"></div>
+<br>
 
 
-<p><input type="submit" value="{translate key="common.saveAndContinue"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="setup" escape=false}'" /></p>
+<p>
+	<input type="submit" value="{translate key="common.saveAndContinue"}" class="btn btn-primary" />
+	<input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="setup" escape=false}'" /></p>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 

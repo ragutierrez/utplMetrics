@@ -29,7 +29,7 @@
 
 {include file="sectionEditor/submission/summary.tpl"}
 
-<div class="separator"></div>
+<br>
 
 <div id="emailLogEntries">
 <h3>{translate key="submission.history.submissionEmailLog"}</h3>

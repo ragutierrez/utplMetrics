@@ -22,15 +22,15 @@
 
 {include file="author/submission/summary.tpl"}
 
-<div class="separator"></div>
+<br>
 
 {include file="author/submission/copyedit.tpl"}
 
-<div class="separator"></div>
+<br>
 
 {include file="author/submission/layout.tpl"}
 
-<div class="separator"></div>
+<br>
 
 {include file="author/submission/proofread.tpl"}
 

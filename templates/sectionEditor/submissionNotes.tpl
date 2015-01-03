@@ -61,7 +61,7 @@
 
 {include file="sectionEditor/submission/summary.tpl"}
 
-<div class="separator"></div>
+<br>
 
 <div id="submissionNotes">
 {if $noteViewType == "edit"}

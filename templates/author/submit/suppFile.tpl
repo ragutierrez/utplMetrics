@@ -96,7 +96,7 @@
 </tr>
 </table>
 </div>
-<div class="separator"></div>
+<br>
 
 {call_hook name="Templates::Author::Submit::SuppFile::AdditionalMetadata"}
 
@@ -137,7 +137,7 @@
 </table>
 {/if}
 
-<div class="separator"></div>
+<br>
 
 <table id="replaceFile" class="data" width="100%">
 <tr valign="top">
@@ -159,9 +159,11 @@
 {/if}
 </table>
 </div>
-<div class="separator"></div>
+<br>
 
-<p><input type="submit" value="{translate key="common.saveAndContinue"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="submit" path="4" articleId=$articleId escape=false}'" /></p>
+<p>
+	<input type="submit" value="{translate key="common.saveAndContinue"}" class="btn btn-primary" />
+	<input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="submit" path="4" articleId=$articleId escape=false}'" /></p>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 

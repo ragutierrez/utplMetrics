@@ -45,7 +45,7 @@
 </tr>
 </table>
 
-<p><input type="submit" value="{translate key="common.continue"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="user" op="subscriptions" escape=false}'" /></p>
+<p><input type="submit" value="{translate key="common.continue"}" class="btn btn-primary" /> <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url page="user" op="subscriptions" escape=false}'" /></p>
 
 </form>
 

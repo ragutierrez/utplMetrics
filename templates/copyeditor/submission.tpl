@@ -16,11 +16,11 @@
 
 {include file="copyeditor/submission/summary.tpl"}
 
-<div class="separator"></div>
+<br>
 
 {include file="copyeditor/submission/copyedit.tpl"}
 
-<div class="separator"></div>
+<br>
 
 {include file="copyeditor/submission/layout.tpl"}
 

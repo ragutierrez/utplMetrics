@@ -65,7 +65,7 @@
 {/if}
 </table>
 </div>
-<input type="submit" value="{translate key="manager.people.enrollSelected"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="manager" escape=false}'" />
+<input type="submit" value="{translate key="manager.people.enrollSelected"}" class="btn btn-primary" /> <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url page="manager" escape=false}'" />
 
 </form>
 

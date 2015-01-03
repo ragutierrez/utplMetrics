@@ -25,20 +25,20 @@
 {include file="sectionEditor/submission/management.tpl"}
 
 {if $authorFees}
-<div class="separator"></div>
+<br>
 
 {include file="sectionEditor/submission/authorFees.tpl"}
 {/if}
 
-<div class="separator"></div>
+<br>
 
 {include file="sectionEditor/submission/editors.tpl"}
 
-<div class="separator"></div>
+<br>
 
 {include file="sectionEditor/submission/status.tpl"}
 
-<div class="separator"></div>
+<br>
 
 {include file="submission/metadata/metadata.tpl"}
 

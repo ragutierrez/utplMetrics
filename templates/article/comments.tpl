@@ -9,7 +9,7 @@
  *
  *}
 {if $comments}
-<div class="separator"></div>
+<br>
 <div id="commentsOnArticle">
 <h4>{translate key="comments.commentsOnArticle"}</h4>
 

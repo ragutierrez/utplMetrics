@@ -120,7 +120,7 @@
 	</tr>
 </table>
 </div>
-<div class="separator"></div>
+<br>
 <div id="enrollment>">
 <h4>{translate key="manager.people.enrollment"}</h4>
 

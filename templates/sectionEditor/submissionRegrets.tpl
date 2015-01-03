@@ -25,7 +25,7 @@
 
 {include file="sectionEditor/submission/summary.tpl"}
 
-<div class="separator"></div>
+<br>
 
 {include file="sectionEditor/submission/rounds.tpl"}
 

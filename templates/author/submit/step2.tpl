@@ -25,7 +25,7 @@
 
 <p>{translate key=$howToKeyName supportName=$journalSettings.supportName supportEmail=$journalSettings.supportEmail supportPhone=$journalSettings.supportPhone}</p>
 
-<div class="separator"></div>
+<br>
 
 <div id="submissionFile">
 <h3>{translate key="author.submit.submissionFile"}</h3>
@@ -55,7 +55,7 @@
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="addSubmissionFile">
 <table class="data" width="100%">

@@ -37,7 +37,7 @@
 {if $showInfo}
 <br />
 
-<div class="separator"></div>
+<br>
 
 <h3>Front Matter</h3>
 
@@ -51,7 +51,7 @@
 
 <br />
 
-<div class="separator"></div>
+<br>
 
 <h3>Metadata</h3>
 

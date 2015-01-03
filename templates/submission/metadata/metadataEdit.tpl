@@ -210,7 +210,7 @@ function moveAuthor(dir, authorIndex) {
 <p><input type="submit" class="button" name="addAuthor" value="{translate key="author.submit.addAuthor"}" /></p>
 </div>
 
-<div class="separator"></div>
+<br>
 {/if}
 
 <div id="titleAndAbstract">
@@ -232,7 +232,7 @@ function moveAuthor(dir, authorIndex) {
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="cover">
 <h3>{translate key="editor.article.cover"}</h3>
@@ -267,7 +267,7 @@ function moveAuthor(dir, authorIndex) {
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="indexing">
 <h3>{translate key="submission.indexing"}</h3>
@@ -384,7 +384,7 @@ function moveAuthor(dir, authorIndex) {
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 
 <div id="supportingAgencies">
 <h3>{translate key="submission.supportingAgencies"}</h3>
@@ -401,7 +401,7 @@ function moveAuthor(dir, authorIndex) {
 </table>
 </div>
 
-<div class="separator"></div>
+<br>
 
 {foreach from=$pubIdPlugins item=pubIdPlugin}
 	{assign var=pubIdMetadataFile value=$pubIdPlugin->getPubIdMetadataFile()}
@@ -439,7 +439,7 @@ function moveAuthor(dir, authorIndex) {
 		{rdelim});
 	{rdelim});
 </script>
-<div class="separator"></div>
+<br>
 {/if}
 
 {if $isEditor}
@@ -477,11 +477,11 @@ function moveAuthor(dir, authorIndex) {
 
 </div>
 
-<div class="separator"></div>
+<br>
 
 {/if}{* $isEditor *}
 
-<p><input type="submit" value="{translate key="submission.saveMetadata"}" class="button defaultButton"/> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="history.go(-1)" /></p>
+<p><input type="submit" value="{translate key="submission.saveMetadata"}" class="button defaultButton"/> <input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="history.go(-1)" /></p>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 

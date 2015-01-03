@@ -23,16 +23,16 @@
 {include file="author/submission/management.tpl"}
 
 {if $authorFees}
-<div class="separator"></div>
+<br>
 
 {include file="author/submission/authorFees.tpl"}
 {/if}
 
-<div class="separator"></div>
+<br>
 
 {include file="author/submission/status.tpl"}
 
-<div class="separator"></div>
+<br>
 
 {include file="submission/metadata/metadata.tpl"}
 

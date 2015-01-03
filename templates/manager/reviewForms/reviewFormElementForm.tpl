@@ -104,7 +104,9 @@ function togglePossibleResponses(newValue, multipleResponsesElementTypesString) 
 </tr>
 </table>
 
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="reviewFormElements" path=$reviewFormId escape=false}'" /></p>
+<p>
+	<input type="submit" value="{translate key="common.save"}" class="btn btn-primary" />
+	<input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url op="reviewFormElements" path=$reviewFormId escape=false}'" /></p>
 </form>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>

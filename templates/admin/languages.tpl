@@ -56,11 +56,13 @@
 </tr>
 </table>
 </div>
-<p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url page="admin" escape=false}'" /></p>
+<p>
+	<input type="submit" value="{translate key="common.save"}" class="btn btn-primary" />
+	<input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="document.location.href='{url page="admin" escape=false}'" /></p>
 
 </form>
 
-<div class="separator"></div>
+<br>
 
 <form method="post" action="{url op="installLocale"}">
 <div id="installLanguages">
@@ -101,7 +103,7 @@
 </div>
 </form>
 
-<div class="separator"></div>
+<br>
 <div id="downloadLocales">
 <h3>{translate key="admin.languages.downloadLocales"}</h3>
 
