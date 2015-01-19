@@ -36,8 +36,15 @@
 	
 	<message key="plugins.generic.utplMetrics.authors.label">Authors</message>
 	<message key="plugins.generic.utplMetrics.aboutAuthors.tabTitle">About Authors</message>
+	<message key="plugins.generic.utplMetrics.comments.tabTitle">Comments</message>
 	
 	<message key="plugins.generic.utplMetrics.tabShare">Share</message>
 	<message key="plugins.generic.utplMetrics.tabCiteButtonText">Cite Article</message>
+	
+	<message key="plugins.generic.utplMetrics.metrics.tabTitle">Article Metrics</message>
+	<message key="plugins.generic.utplMetrics.metrics.ViewedSubtitle">Viewed</message>
+	<message key="plugins.generic.utplMetrics.metrics.CitedSubtitle">Cited</message>
+	<message key="plugins.generic.utplMetrics.metrics.DiscussedSubtitle">Discussed</message>
+	<message key="plugins.generic.utplMetrics.metrics.SavedSubtitle">Saved</message>
 
 </locale>

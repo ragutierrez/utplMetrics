@@ -50,26 +50,55 @@
 	<div id="articleTitle"><h2>{$article->getLocalizedTitle()|strip_unsafe_html}</h2></div>
 	<div id="authorString" class="text-info"><h4>{translate key="plugins.generic.utplMetrics.authors.label"}: {$article->getAuthorString()|escape}</h4></div>
 
-	{foreach from=$pubIdPlugins item=pubIdPlugin}
-		{if $issue->getPublished()}
-			{assign var=pubId value=$pubIdPlugin->getPubId($pubObject)}
-		{else}
-			{assign var=pubId value=$pubIdPlugin->getPubId($pubObject, true)}{* Preview rather than assign a pubId *}
-		{/if}
-		{if $pubId}
-			{$pubIdPlugin->getPubIdDisplayType()|escape}: {if $pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}<a id="pub-id::{$pubIdPlugin->getPubIdType()|escape}" href="{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}">{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}</a>{else}{$pubId|escape}{/if}
-		{/if}
-	{/foreach}
+	<div class="container-fluid">
+		{foreach from=$pubIdPlugins item=pubIdPlugin}
+			{if $issue->getPublished()}
+				{assign var=pubId value=$pubIdPlugin->getPubId($pubObject)}
+			{else}
+				{assign var=pubId value=$pubIdPlugin->getPubId($pubObject, true)}{* Preview rather than assign a pubId *}
+			{/if}
+			{if $pubId}
+				{$pubIdPlugin->getPubIdDisplayType()|escape}: {if $pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}<a id="pub-id::{$pubIdPlugin->getPubIdType()|escape}" href="{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}">{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}</a>{else}{$pubId|escape}{/if}
+			{/if}
+		{/foreach}
 
-	{if $article->getLocalizedSubject()}
-		<h4>{translate key="article.subject"}</h4>
-		<div id="articleSubject">
-		<br />
-		<div>{$article->getLocalizedSubject()|escape}</div>
-		<br />
+		{if $article->getLocalizedSubject()}
+			<h4>{translate key="article.subject"}</h4>
+			<div id="articleSubject">
+				<br />
+				<div>{$article->getLocalizedSubject()|escape}</div>
+				<br />
+			</div>
+		{/if}
+		<div class="pull-right">
+			<div id="citeArticle" class="btn btn-primary" onclick='window.open("{url page="rt" op="captureCite" path=$article->getBestArticleId($currentJournal)}", "popupWindow", "width=700,height=600,scrollbars=yes");'>
+				{translate key="plugins.generic.utplMetrics.tabCiteButtonText"}
+			</div>
+			<div class="btn-group" style="margin-right:15px">
+				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">{translate key="plugins.generic.utplMetrics.tabShare"} <span class="caret"></span>
+  				</button>
+  				<ul class="dropdown-menu" role="menu">
+				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.reddit.com/submit?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
+				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.reddit.16.png" alt="Reddit" height="16" width="16">Reddit</a></li>
+				    <li><a target="_blank" style="padding-left: 10px;" href="https://plus.google.com/share?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
+				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.gplus.16.png" alt="Reddit" height="16" width="16">Google+</a></li>
+				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.stumbleupon.com/submit?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
+				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.stumble.16.png.png" alt="Reddit" height="16" width="16">StumbleUpon</a></li>
+				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.facebook.com/share.php?u={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}&t={$article->getLocalizedTitle()|strip_unsafe_html}">
+				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.fb.16.png" alt="Reddit" height="16" width="16">Facebook</a></li>
+				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.linkedin.com/shareArticle?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}&title={$article->getLocalizedTitle()|strip_unsafe_html}&summary=Checkout%20this%20article%20I%20found">
+				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.linkedin.16.png" alt="Reddit" height="16" width="16">LinkedIn</a></li>
+				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.citeulike.org/posturl?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}&title={$article->getLocalizedTitle()|strip_unsafe_html}">
+				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.cul.16.png.png" alt="Reddit" height="16" width="16">CiteULike</a></li>
+				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.mendeley.com/import/?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
+				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.mendeley.16.png" alt="Reddit" height="16" width="16">Mendeley</a></li>
+				    <li><a target="_blank" style="padding-left: 10px;" href="http://twitter.com/intent/tweet?text={$article->getLocalizedTitle()|strip_unsafe_html}{if $pubIdPlugin->getPubIdType()=='doi'&& $pubId} {$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else} {url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
+				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.twtr.16.png" alt="Reddit" height="16" width="16">Twitter</a></li>
+				</ul>
+			</div>
 		</div>
-	{/if}
-
+	</div>
+	<div class="container-fluid">
 	<!-- Tabs Description -->
 	<ul class="nav nav-tabs" role="tablist" id="articleTabs">
 		{if $article->getLocalizedAbstract()}
@@ -96,7 +125,7 @@
 		{if $pubId}
 		<li role="presentation" id="chart">
 			<a href="#Metrics" aria-controls="Metrics" role="tab" data-toggle="tab">
-				<h4>{translate key="plugins.generic.utplMetrics.title"}</h4>
+				<h4>{translate key="plugins.generic.utplMetrics.metrics.tabTitle"}</h4>
 			</a>
 		</li>
 		{/if}
@@ -105,34 +134,14 @@
 				<h4>{translate key="plugins.generic.utplMetrics.aboutAuthors.tabTitle"}</h4>
 			</a>
 		</li>
-		<li class="pull-right">
-			<div id="citeArticle" class="btn btn-primary" onclick='window.open("{url page="rt" op="captureCite" path=$article->getBestArticleId($currentJournal)}", "popupWindow", "width=700,height=600,scrollbars=yes");'>
-				{translate key="plugins.generic.utplMetrics.tabCiteButtonText"}
-			</div>
-			<div class="btn-group" style="margin-right:15px">
-				<button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">{translate key="plugins.generic.utplMetrics.tabShare"} <span class="caret"></span>
-  				</button>
-  				<ul class="dropdown-menu" role="menu">
-				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.reddit.com/submit?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
-				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.reddit.16.png" alt="Reddit" height="16" width="16">Reddit</a></li>
-				    <li><a target="_blank" style="padding-left: 10px;" href="https://plus.google.com/share?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
-				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.gplus.16.png" alt="Reddit" height="16" width="16">Google+</a></li>
-				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.stumbleupon.com/submit?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
-				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.stumble.16.png.png" alt="Reddit" height="16" width="16">StumbleUpon</a></li>
-				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.facebook.com/share.php?u={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}&t={$article->getLocalizedTitle()|strip_unsafe_html}">
-				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.fb.16.png" alt="Reddit" height="16" width="16">Facebook</a></li>
-				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.linkedin.com/shareArticle?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}&title={$article->getLocalizedTitle()|strip_unsafe_html}&summary=Checkout%20this%20article%20I%20found">
-				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.linkedin.16.png" alt="Reddit" height="16" width="16">LinkedIn</a></li>
-				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.citeulike.org/posturl?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}&title={$article->getLocalizedTitle()|strip_unsafe_html}">
-				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.cul.16.png.png" alt="Reddit" height="16" width="16">CiteULike</a></li>
-				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.mendeley.com/import/?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
-				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.mendeley.16.png" alt="Reddit" height="16" width="16">Mendeley</a></li>
-				    <li><a target="_blank" style="padding-left: 10px;" href="http://twitter.com/intent/tweet?text={$article->getLocalizedTitle()|strip_unsafe_html}{if $pubIdPlugin->getPubIdType()=='doi'&& $pubId} {$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else} {url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
-				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.twtr.16.png" alt="Reddit" height="16" width="16">Twitter</a></li>
-				</ul>
-			</div>
+		<li>
+			<a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">
+				<h4>{translate key="plugins.generic.utplMetrics.comments.tabTitle"}</h4>
+			</a>
 		</li>
-	</ul> <!-- END Tabs Description -->
+	</ul>
+	<!-- END Tabs Description -->
+	</div>
 
 	<!-- Tabs Content -->
 	<div class="tab-content panel-body">
@@ -182,38 +191,64 @@
 			</div>
 		{/if}
 		{if $pubId}
-		<div role="tabpanel" class="tab-pane text-center" id="Metrics">
+		<div role="tabpanel" class="tab-pane" id="Metrics">
 			<div>
-				<h2>Datos de la revista</h2>
-				<div>
-					<div class="panel panel-default" style="display:inline-block;">
-						<div class="panel-body">
-						<h1>VISTAS</h1>
-						</div>
-						<div id="viewsCount" class="panel-footer" style="line-height:30px;font-size:36px;font-weight:bold;background-color:#337ab7;color:#FFF">
+				<h2>{translate key="plugins.generic.utplMetrics.metrics.ViewedSubtitle"}</h2>
+				<div class="container-fluid text-center">
+					<div class="pull-left">
+						<div>Total Article Views</div>
+						<div>23,748</div>
+						<div>
+							Nov 26, 2014 (publication date)<br>
+							through Jan 18, 2015*
 						</div>
 					</div>
-					<div class="panel panel-default" style="display:inline-block;">
-						<div class="panel-body">
-							<h1>DESCARGAS</h1>
+					<div class="pull-right">
+						<table>
+							<tbody>
+								<tr>
+									<th></th>
+									<th>HTML Page Views</th>
+									<th>PDF Downloads</th>
+									<th>Totals</th>
+								</tr>
+								<tr>
+									<td>PLOS</td>
+									<td>22,842</td>
+									<td>870</td>
+									<td>23,748</td>
+								</tr>
+								<tr>
+									<td colspan="5"><b>3.81%</b> of article views led to PDF downloads</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div id="chart">
+					<div id="canvas-holder">
+						<div id="loading">
 						</div>
-						<div id="downloadsCount" class="panel-footer" style="line-height:30px;font-size:36px;font-weight:bold;background-color:#337ab7;color:#FFF">
-						</div>
+						<div id="legend" class="pull-left"></div>
+						<canvas id="chart-area" height="400px"/>
 					</div>
 				</div>
 			</div>
+			<hr>
 			<div>
-				<h2>Datos Externos</h2>
-				<div id="canvas-holder">
-					<div id="loading">
-					{translate key="plugins.generic.utplMetrics.loading"}
-					</div>
-					<div id="legend" class="pull-left"></div>
-					<canvas id="chart-area" height="400px"/>
-				</div>
-				<div>
-					<span><sub>Metrics powered by <a href="http://www.altmetric.com/">ALTMETRIC</a> and <a href="http://www.elsevier.es/">ELSEVIER</a><sub></span>
-				</div>
+				<h2>{translate key="plugins.generic.utplMetrics.metrics.CitedSubtitle"}</h2>
+			</div>
+			<hr>
+			<div>
+				<h2>{translate key="plugins.generic.utplMetrics.metrics.DiscussedSubtitle"}</h2>
+			</div>
+			<hr>
+			<div>
+				<h2>{translate key="plugins.generic.utplMetrics.metrics.SavedSubtitle"}</h2>
+			</div>
+			<hr>
+			<div>
+				<span><sub>Metrics powered by <a href="http://www.altmetric.com/">ALTMETRIC</a> and <a href="http://www.elsevier.es/">ELSEVIER</a><sub></span>
 			</div>
 		</div>
 		{/if}
@@ -249,7 +284,49 @@
 				</div>
 			{/foreach}
 		</div>
-		
+		<div role="tabpanel" class="tab-pane" id="comments">
+			{if $comments}
+			<div id="commentsOnArticle">
+				<h4>{translate key="comments.commentsOnArticle"}</h4>
+				<ul>
+					{foreach from=$comments item=comment}
+					{assign var=poster value=$comment->getUser()}
+					<li>
+						<a href="{url page="comment" op="view" path=$article->getId()|to_array:$galleyId:$comment->getId()}" target="_parent">{$comment->getTitle()|escape|default:"&nbsp;"}</a>
+						{if $comment->getChildCommentCount()==1}
+							{translate key="comments.oneReply"}
+						{elseif $comment->getChildCommentCount()>0}
+							{translate key="comments.nReplies" num=$comment->getChildCommentCount()}
+						{/if}
+
+						<br/>
+
+						{if $poster}
+							{url|assign:"publicProfileUrl" page="user" op="viewPublicProfile" path=$poster->getId()}
+							{translate key="comments.authenticated" userName=$poster->getFullName()|escape publicProfileUrl=$publicProfileUrl}
+						{elseif $comment->getPosterName()}
+							{translate key="comments.anonymousNamed" userName=$comment->getPosterName()|escape}
+						{else}
+							{translate key="comments.anonymous"}
+						{/if}
+						({$comment->getDatePosted()|date_format:$dateFormatShort})
+					</li>
+					{/foreach}
+				</ul>
+				<a href="{url page="comment" op="view" path=$article->getId()|to_array:$galleyId}" class="action" target="_parent">{translate key="comments.viewAllComments"}</a>
+				{assign var=needsSeparator value=1}
+			</div>
+			{/if}{* $comments *}
+
+			{if $postingAllowed}
+				{if $needsSeparator}
+					&nbsp;|&nbsp;
+				{else}
+					<br/><br/>
+				{/if}
+				<a class="action" href="{url page="comment" op="add" path=$article->getId()|to_array:$galleyId}" target="_parent">{translate key="rt.addComment"}</a>
+			{/if}
+		</div>
 	</div> <!-- END Tabs Content -->
 {/if}
 
@@ -267,14 +344,8 @@
 		$.getScript('{$chartjsImportPath}', function() {ldelim}
 			$( "#chart" ).click(function() {ldelim}
 				var colorDictionary = {ldelim}
-					facebook : "#3b5998",
-					google_plus : "#d62d20",
-					reddit : "#FF5700",
-					tweets : "#326ada",
-					citeULike : "#446600",
-					mendeley : "#B61F2F",
-					scopus : "#006666",
-					scholar: "#2D2D2D"
+					ojs_Views : "#3b5998",
+					ojs_Downloads : "#d62d20",
 				{rdelim}
 
 				var chartData = 
@@ -292,7 +363,7 @@
 				    ]
 				{rdelim};
 
-				sources=options.utplMetricsStatsJson[0].sources;
+				sources=options.ojsStats;
 
 				for (key in sources){ldelim}
 						if (sources[key]>0){ldelim}
@@ -308,10 +379,6 @@
 
 				$(document).ready(function() {ldelim}
 
-					$("#viewsCount")[0].textContent=options.ojsStats.ojs_Views;
-					$("#downloadsCount")[0].textContent=options.ojsStats.ojs_Downloads;
-
-					$('div canvas')[0].width=$(window).width()*0.30;
 					var ctx = document.getElementById("chart-area").getContext("2d");
 					window.myChart = new Chart(ctx).Bar(chartData);
 
@@ -332,18 +399,12 @@
 							var span = $('<span />').addClass('badge');
 							span[0].textContent=sources[key];
 
-							if (key!="scopus" && sources[key]>0){ldelim}
-							li[0].style.cursor="pointer";
-								li.click(function(){ldelim}
-									window.open(options.utplMetricsStatsJson[0].moreInfoURL, '_blank');
-								{rdelim});
-							{rdelim}
 							li[0].textContent=key.toLocaleUpperCase();
 							li.addClass('list-group-item');
 							li_style.borderColor=colorDictionary[key];
 							li_style.borderLeftWidth="10px";
 							li_style.padding="2%"
-							li_style.minWidth="150px";
+							li_style.minWidth="180px";
 							li_style.fontWeight='bold';
 							
 							span.appendTo(li);
@@ -355,7 +416,6 @@
 					$('#loading').attr('style','display:none;');
 				{rdelim});
 				$(window).resize(function() {ldelim}
-					$('div canvas')[0].width=$(window).width()*0.30;
 					var ctx = document.getElementById("chart-area").getContext("2d");
 					window.myChart = new Chart(ctx).Bar(chartData);
 				{rdelim});

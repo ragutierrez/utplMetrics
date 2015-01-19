@@ -938,10 +938,6 @@ class utplPlugin extends GenericPlugin {
 					$template = $this->getTemplatePath() . 'templates/article/footer.tpl';
 					break;
 					
-				case 'article/comments.tpl':
-					$template = $this->getTemplatePath() . 'templates/article/comments.tpl';
-					break;
-					
 				case 'editor/issues/futureIssues.tpl':
 					$template = $this->getTemplatePath() . 'templates/editor/issues/futureIssues.tpl';
 					break;
@@ -1059,7 +1055,7 @@ class utplPlugin extends GenericPlugin {
 					$article =& $templateMgr->get_template_vars('article');
 					assert(is_a($article, 'PublishedArticle'));
 
-					$utplMetricsStatsJson = $this->_getUtplMetricsStats($article);
+					// $utplMetricsStatsJson = $this->_getUtplMetricsStats($article);
 					
 					$ojsStatsJson = $this->_getOJSMetricsStats($article);
 
