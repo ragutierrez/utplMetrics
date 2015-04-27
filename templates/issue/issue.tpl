@@ -15,7 +15,7 @@
 	{assign var=articlePath value=$article->getBestArticleId($currentJournal)}
 
 <table class="table table-striped" width="100%">
-<tr valign="top">
+<tr>
 	{if $article->getLocalizedFileName() && $article->getLocalizedShowCoverPage() && !$article->getHideCoverPageToc($locale)}
 	<td rowspan="2">
 		<div class="tocArticleCoverImage">

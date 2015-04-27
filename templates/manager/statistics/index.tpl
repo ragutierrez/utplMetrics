@@ -15,7 +15,7 @@
 
 <br/>
 
-{include file="manager/statistics/statistics.tpl"}
+{include file="`$importPath`templates/manager/statistics/statistics.tpl"}
 
 <div class="separator">&nbsp;</div>
 
@@ -33,5 +33,5 @@
 	
 	<p><a href="{url op="reportGenerator"}">{translate key="manager.statistics.reports.generateReport"}</a></p>	
 </div>
-{include file="common/footer.tpl"}
+{include file="`$importPath`templates/article/footer.tpl"}
 

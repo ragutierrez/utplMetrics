@@ -70,7 +70,7 @@
 				<br />
 			</div>
 		{/if}
-		<div class="pull-right">
+		<div class="pull-left" style="padding:0 2% 2% 0">
 			<div id="citeArticle" class="btn btn-primary" onclick='window.open("{url page="rt" op="captureCite" path=$article->getBestArticleId($currentJournal)}", "popupWindow", "width=700,height=600,scrollbars=yes");'>
 				{translate key="plugins.generic.utplMetrics.tabCiteButtonText"}
 			</div>
@@ -83,13 +83,13 @@
 				    <li><a target="_blank" style="padding-left: 10px;" href="https://plus.google.com/share?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
 				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.gplus.16.png" alt="Reddit" height="16" width="16">Google+</a></li>
 				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.stumbleupon.com/submit?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
-				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.stumble.16.png.png" alt="Reddit" height="16" width="16">StumbleUpon</a></li>
+				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.stumble.16.png" alt="Reddit" height="16" width="16">StumbleUpon</a></li>
 				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.facebook.com/share.php?u={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}&t={$article->getLocalizedTitle()|strip_unsafe_html}">
 				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.fb.16.png" alt="Reddit" height="16" width="16">Facebook</a></li>
 				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.linkedin.com/shareArticle?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}&title={$article->getLocalizedTitle()|strip_unsafe_html}&summary=Checkout%20this%20article%20I%20found">
 				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.linkedin.16.png" alt="Reddit" height="16" width="16">LinkedIn</a></li>
 				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.citeulike.org/posturl?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}&title={$article->getLocalizedTitle()|strip_unsafe_html}">
-				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.cul.16.png.png" alt="Reddit" height="16" width="16">CiteULike</a></li>
+				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.cul.16.png" alt="Reddit" height="16" width="16">CiteULike</a></li>
 				    <li><a target="_blank" style="padding-left: 10px;" href="http://www.mendeley.com/import/?url={if $pubIdPlugin->getPubIdType()=='doi'&& $pubId}{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else}{url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
 				    	<img style="margin-right: 5px;" src="{$baseImportPath}img/icon.mendeley.16.png" alt="Reddit" height="16" width="16">Mendeley</a></li>
 				    <li><a target="_blank" style="padding-left: 10px;" href="http://twitter.com/intent/tweet?text={$article->getLocalizedTitle()|strip_unsafe_html}{if $pubIdPlugin->getPubIdType()=='doi'&& $pubId} {$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}{else} {url page="article" op="view" path=$article->getBestArticleId($currentJournal)}{/if}">
@@ -194,57 +194,54 @@
 		<div role="tabpanel" class="tab-pane" id="Metrics">
 			<div>
 				<h2>{translate key="plugins.generic.utplMetrics.metrics.ViewedSubtitle"}</h2>
-				<div class="container-fluid text-center">
-					<div class="pull-left">
-						<div>Total Article Views</div>
-						<div>23,748</div>
-						<div>
-							Nov 26, 2014 (publication date)<br>
-							through Jan 18, 2015*
-						</div>
+				<div id="div_for_table" style="height:125px">
+					<div id="div_near_table" style="background-color: #ccc;padding:2%;width:25%;text-align:center;height:100%" class="pull-left">
+						<div style="font-size: 11px;">{translate key="plugins.generic.utplMetrics.table.all_total_views"}</div>
+						<div style="font-weight:bold;" class="all_total_views"></div>
+						<div id="pub_date"></div>
 					</div>
-					<div class="pull-right">
-						<table>
-							<tbody>
-								<tr>
-									<th></th>
-									<th>HTML Page Views</th>
-									<th>PDF Downloads</th>
-									<th>Totals</th>
-								</tr>
-								<tr>
-									<td>PLOS</td>
-									<td>22,842</td>
-									<td>870</td>
-									<td>23,748</td>
-								</tr>
-								<tr>
-									<td colspan="5"><b>3.81%</b> of article views led to PDF downloads</td>
-								</tr>
-							</tbody>
+					<div id="div_where_table" style="text-align:center;height:100%;">
+						<table id="table_stats" style="height:100%;">
+							<tr style="background-color: rgb(204, 204, 204);">
+								<td style='width:33.3333333333333%'>{translate key="plugins.generic.utplMetrics.table.html_views"}</td>
+								<td style='width:33.3333333333333%'>{translate key="plugins.generic.utplMetrics.table.pdf_downloads"}</td>
+								<td style='width:33.3333333333333%'>{translate key="plugins.generic.utplMetrics.table.total"}</td>
+							</tr>
+							<tr>
+								<td id="total_html">0</td>
+								<td id="total_pdf">0</td>
+								<td class="all_total_views">0</td>
+							</tr>
+							<tr>
+								<td colspan="3"><b id="percent">0</b>% {translate key="plugins.generic.utplMetrics.table.percent_text"}</td>
+							</tr>
 						</table>
 					</div>
 				</div>
+				<div style="padding-top:10px;padding-bottom:10px;"></div>
 				<div id="chart">
 					<div id="canvas-holder">
 						<div id="loading">
 						</div>
 						<div id="legend" class="pull-left"></div>
-						<canvas id="chart-area" height="400px"/>
+						<canvas id="chart-area" height="300px"/>
 					</div>
 				</div>
 			</div>
 			<hr>
 			<div>
 				<h2>{translate key="plugins.generic.utplMetrics.metrics.CitedSubtitle"}</h2>
+				<div id="CitedSubtitle"></div>
 			</div>
 			<hr>
 			<div>
 				<h2>{translate key="plugins.generic.utplMetrics.metrics.DiscussedSubtitle"}</h2>
+				<div id="DiscussedSubtitle"></div>
 			</div>
 			<hr>
 			<div>
 				<h2>{translate key="plugins.generic.utplMetrics.metrics.SavedSubtitle"}</h2>
+				<div id="SavedSubtitle"></div>
 			</div>
 			<hr>
 			<div>
@@ -285,7 +282,6 @@
 			{/foreach}
 		</div>
 		<div role="tabpanel" class="tab-pane" id="comments">
-			{if $comments}
 			<div id="commentsOnArticle">
 				<h4>{translate key="comments.commentsOnArticle"}</h4>
 				<ul>
@@ -316,7 +312,6 @@
 				<a href="{url page="comment" op="view" path=$article->getId()|to_array:$galleyId}" class="action" target="_parent">{translate key="comments.viewAllComments"}</a>
 				{assign var=needsSeparator value=1}
 			</div>
-			{/if}{* $comments *}
 
 			{if $postingAllowed}
 				{if $needsSeparator}
@@ -338,18 +333,18 @@
 	options = {ldelim}
 		utplMetricsStatsJson: $.parseJSON('{$utplMetricsStatsJson|escape:"javascript"}'),
 		ojsStats:$.parseJSON('{$ojsStatsJson|escape:"javascript"}'),
+		article_date:'{$issue->getDatePublished()|escape:"javascript"}',
 	{rdelim}
 
 	$.getScript('{$jqueryImportPath}', function() {ldelim}
 		$.getScript('{$chartjsImportPath}', function() {ldelim}
-			$( "#chart" ).click(function() {ldelim}
+			$("#chart").click(function() {ldelim}
 				var colorDictionary = {ldelim}
 					ojs_Views : "#3b5998",
 					ojs_Downloads : "#d62d20",
 				{rdelim}
 
-				var chartData = 
-				{ldelim}
+				var chartData = {ldelim}
 				    labels: [],
 				    datasets: [
 				        {ldelim}
@@ -376,8 +371,31 @@
 					{rdelim}
 				{rdelim}
 
-
 				$(document).ready(function() {ldelim}
+					$('#CitedSubtitle')[0].innerHTML='';
+					$('#SavedSubtitle')[0].innerHTML='';
+					$('#DiscussedSubtitle')[0].innerHTML='';
+
+					var ojs_Views = parseInt(options.ojsStats.ojs_Views);
+					var ojs_Downloads = parseInt(options.ojsStats.ojs_Downloads);
+
+					$('#table_stats td').each(function(){ldelim}
+						$(this)[0].style.border = '1px solid #ccc';
+					{rdelim});
+
+					$('.all_total_views').each(function(){ldelim}
+						$(this)[0].textContent = ojs_Views + ojs_Downloads;
+						{rdelim});
+					$('#total_html')[0].textContent = ojs_Views;
+					$('#total_pdf')[0].textContent = ojs_Downloads;
+					$('#percent')[0].textContent = ((ojs_Downloads*100)/(ojs_Views+ojs_Downloads)).toFixed(2);
+					//articleDate
+					var ad = new Date(options.article_date.split(" ")[0]);
+
+					var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+					var d = new Date();
+					$("div#pub_date")[0].innerHTML= monthNames[ad.getMonth()]+' '+ad.getDate()+', '+ad.getFullYear() +'<br/>'+ monthNames[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();
+					$("div#pub_date")[0].style.fontSize='10px';
 
 					var ctx = document.getElementById("chart-area").getContext("2d");
 					window.myChart = new Chart(ctx).Bar(chartData);
@@ -418,13 +436,101 @@
 				$(window).resize(function() {ldelim}
 					var ctx = document.getElementById("chart-area").getContext("2d");
 					window.myChart = new Chart(ctx).Bar(chartData);
+					if($(window).width()>=650) {ldelim}
+						$('#div_near_table')[0].style.border='';
+						$('#div_where_table')[0].style.border='';
+						$('#div_near_table')[0].style='';
+						$('#div_near_table')[0].class="pull-left";
+						$('#div_near_table')[0].style.width='25%';
+						$('#div_where_table table')[0].style.width='';
+						$('#div_for_table')[0].style.height='124px';
+						$('#div_near_table')[0].style.height='100%';
+						$('#div_where_table')[0].style.height='100%';
+						$('#div_where_table table')[0].style.height='100%';
+						$('#div_where_table')[0].style.width='';
+						$('#div_near_table')[0].style.backgroundColor='#ccc';
+						$('#div_near_table')[0].style.padding='2%';
+						$('#div_near_table')[0].style.textAlign='center'
+						$('#div_near_table')[0].style.height='100%';
+					{rdelim} else if($(window).width()<=450) {ldelim}
+						$('#div_for_table')[0].style.height='';
+						$('#div_where_table table')[0].style.width='';
+						$('#div_where_table table')[0].style.height='';
+						$('#div_where_table')[0].style.height='';
+						$('#div_near_table')[0].style.width='180px';
+						$('#div_where_table')[0].style.width='180px';
+					{rdelim} else if($(window).width()<650 && $(window).width()>450) {ldelim}
+						$('#div_for_table')[0].style.height='201px';
+						$('#div_where_table')[0].style.height='';
+						$('#div_where_table table')[0].style.height='';
+						$('#div_where_table')[0].style.width='100%';
+						$('#div_near_table')[0].style.height='';
+						$('#div_near_table')[0].style.width='100%';
+						$('#div_near_table')[0].style.border='1px solid #000';
+						$('#div_where_table')[0].style.border='1px solid #000';
+						$('#div_where_table table')[0].style.width='100%';
+					{rdelim}
+				{rdelim});
+
+				$(document).ready(function() {ldelim}
+					if($(window).width()>=650) {ldelim}
+						$('#div_near_table')[0].style.border='';
+						$('#div_where_table')[0].style.border='';
+						$('#div_near_table')[0].style='';
+						$('#div_near_table')[0].class="pull-left";
+						$('#div_near_table')[0].style.width='25%';
+						$('#div_where_table table')[0].style.width='';
+						$('#div_for_table')[0].style.height='124px';
+						$('#div_near_table')[0].style.height='100%';
+						$('#div_where_table')[0].style.height='100%';
+						$('#div_where_table table')[0].style.height='100%';
+						$('#div_where_table')[0].style.width='';
+						$('#div_near_table')[0].style.backgroundColor='#ccc';
+						$('#div_near_table')[0].style.padding='2%';
+						$('#div_near_table')[0].style.textAlign='center'
+						$('#div_near_table')[0].style.height='100%';
+					{rdelim} else if($(window).width()<=390) {ldelim}
+						$('#div_for_table')[0].style.height='';
+						$('#div_where_table table')[0].style.width='';
+						$('#div_where_table table')[0].style.height='';
+						$('#div_where_table')[0].style.height='';
+						$('#div_near_table')[0].style.width='180px';
+						$('#div_where_table')[0].style.width='180px';
+					{rdelim} else if($(window).width()<650 && $(window).width()>390) {ldelim}
+						$('#div_for_table')[0].style.height='201px';
+						$('#div_where_table')[0].style.height='';
+						$('#div_where_table table')[0].style.height='';
+						$('#div_where_table')[0].style.width='100%';
+						$('#div_near_table')[0].style.height='';
+						$('#div_near_table')[0].style.width='100%';
+						$('#div_near_table')[0].style.border='1px solid #000';
+						$('#div_where_table')[0].style.border='1px solid #000';
+						$('#div_where_table table')[0].style.width='100%';
+					{rdelim}
+
+					var altmetricStats = options.utplMetricsStatsJson[0].sources;
+					var divClass = '';
+
+					for (key in altmetricStats){ldelim}
+						if(key=='google_plus'||key=='facebook'||key=='tweets'){ldelim}
+							divClass='#DiscussedSubtitle';
+						{rdelim}else if(key=='mendeley'||key=='citeULike'){ldelim}
+							divClass='#SavedSubtitle';
+						{rdelim}else if(key=='scopus'){ldelim}
+							divClass='#CitedSubtitle';
+						{rdelim}
+						$('<img/>',{ldelim}'src':'{$baseImportPath}img/'+key+'.png',{rdelim}).css({ldelim}'border-bottom':'1px solid #ccc'{rdelim})
+					.appendTo($('<div/>', {ldelim}'id':'sub_'+key,{rdelim})
+						.css({ldelim}'width':'102px','height':'102px','border':'1px solid #ccc','margin':'0 8px 8px 0','display':'inline-block'{rdelim}).appendTo(divClass));
+						var div_id = '#sub_'+key;
+						$(div_id).append($('<div/>',{ldelim}'text':altmetricStats[key]{rdelim}).css({ldelim}'background-color':'#ccc','color':'#069','font-size':'1.3em','text-decoration':'none','text-align':'center','font-weight':'bold','width':'100px','height':'32px'{rdelim}))
+					{rdelim}
+
 				{rdelim});
 			{rdelim});
 		{rdelim});
 	{rdelim});
 
 </script>
-
-{include file="`$importPath`templates/article/comments.tpl"}
 
 {include file="`$importPath`templates/article/footer.tpl"}

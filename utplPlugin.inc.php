@@ -134,7 +134,6 @@ class utplPlugin extends GenericPlugin {
 			$templateMgr =& $params[0];
 			$template =& $params[1];
 
-			// var_dump($template);
 			$importPath = ".." . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
 			$templateMgr->assign('importPath', $importPath);
 			$baseImportPath = Request::getBaseUrl() . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
@@ -434,12 +433,16 @@ class utplPlugin extends GenericPlugin {
 					$template = $this->getTemplatePath() . 'templates/manager/people/userProfile.tpl';
 					break;
 					
-				case 'manager/statistics/reportGenerator.tpl':
-					$template = $this->getTemplatePath() . 'templates/manager/statistics/reportGenerator.tpl';
-					break;
-					
 				case 'manager/statistics/index.tpl':
 					$template = $this->getTemplatePath() . 'templates/manager/statistics/index.tpl';
+					break;
+					
+				case 'manager/statistics/statistics.tpl':
+					$template = $this->getTemplatePath() . 'templates/manager/statistics/statistics.tpl';
+					break;
+					
+				case 'manager/statistics/reportGenerator.tpl':
+					$template = $this->getTemplatePath() . 'templates/manager/statistics/reportGenerator.tpl';
 					break;
 					
 				case 'manager/emails/emailTemplateForm.tpl':
@@ -1055,8 +1058,7 @@ class utplPlugin extends GenericPlugin {
 					$article =& $templateMgr->get_template_vars('article');
 					assert(is_a($article, 'PublishedArticle'));
 
-					// $utplMetricsStatsJson = $this->_getUtplMetricsStats($article);
-					
+					$utplMetricsStatsJson = $this->_getUtplMetricsStats($article);
 					$ojsStatsJson = $this->_getOJSMetricsStats($article);
 
 					if ($ojsStatsJson || $utplMetricsStatsJson) {

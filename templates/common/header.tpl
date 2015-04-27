@@ -137,6 +137,7 @@
 			{rdelim});
 			$('#sidebar .panel.panel-default').each(function(b){ldelim}
 				$(this)[0].style.padding="10px";
+				$(this)[0].style.width="140px";
 			{rdelim});
 			$('#sizer').each(function(b){ldelim}
 				$(this)[0].style.height="25px";

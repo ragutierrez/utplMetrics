@@ -47,4 +47,10 @@
 	<message key="plugins.generic.utplMetrics.metrics.DiscussedSubtitle">Discussed</message>
 	<message key="plugins.generic.utplMetrics.metrics.SavedSubtitle">Saved</message>
 
+	<message key="plugins.generic.utplMetrics.table.all_total_views">Total Article Views</message>
+	<message key="plugins.generic.utplMetrics.table.html_views">HTML Page Views</message>
+	<message key="plugins.generic.utplMetrics.table.pdf_downloads">PDF Downloads</message>
+	<message key="plugins.generic.utplMetrics.table.total">Totals</message>
+	<message key="plugins.generic.utplMetrics.table.percent_text">of article views led to PDF downloads</message>
+
 </locale>
