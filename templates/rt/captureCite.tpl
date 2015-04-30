@@ -19,6 +19,14 @@
 	{url|assign:"articleUrl" page="article" op="view" path=$articleId}
 {/if}
 <div id="captureCite">
+<script type="text/javascript">
+	$(document).ready(function() {ldelim}
+		$('#citation').click(function(){ldelim}
+			console.log("click"+$(this)[0].innerHTML);
+			window.prompt("Copy to clipboard: Ctrl+C, Enter", $.trim($(this)[0].innerHTML));
+		{rdelim});
+	{rdelim});
+</script>
 <h3>{$article->getLocalizedTitle()|strip_unsafe_html}</h3>
 
 <form action="#">
@@ -29,10 +37,10 @@
 </select>
 	
 </form>
-
 <div class="panel panel-primary" style="margin-top:20px;padding:10px">
 {call_hook name="Template::RT::CaptureCite"}
 </div>
+<h4>{translate key="plugins.generic.utplMetrics.captureCite.help"}</h4>
 </div>
 
 {include file="rt/footer.tpl"}

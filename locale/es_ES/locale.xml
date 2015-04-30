@@ -52,5 +52,7 @@
 	<message key="plugins.generic.utplMetrics.table.pdf_downloads">Descargas en PDF</message>
 	<message key="plugins.generic.utplMetrics.table.total">Total</message>
 	<message key="plugins.generic.utplMetrics.table.percent_text">de las vistas son mediante PDF</message>
+	
+	<message key="plugins.generic.utplMetrics.captureCite.help">Para copiar haga click sobre la cita</message>
 
 </locale>

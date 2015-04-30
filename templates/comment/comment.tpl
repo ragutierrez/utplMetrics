@@ -43,7 +43,7 @@ function handleAnonymousCheckbox(theBox) {
 <form id="submit" action="{if $commentId}{url op="edit" path=$articleId|to_array:$galleyId:$commentId}{else}{url op="add" path=$articleId|to_array:$galleyId:$parentId:"save"}{/if}" method="post">
 <table class="data" width="100%">
 	<tr valign="top">
-		<td class="label" width="20%"><label for="posterName">{translate key="comments.name"}</label></td>
+		<td width="20%"><label for="posterName">{translate key="comments.name"}</label></td>
 		<td class="value" width="80%"><input type="text" class="textField" name="posterName" id="posterName" value="{$posterName|escape}" size="40" maxlength="90" /></td>
 	</tr>
 	<tr valign="top">
@@ -73,12 +73,12 @@ function handleAnonymousCheckbox(theBox) {
 {if $captchaEnabled}
 	<tr valign="top">
 		{if $reCaptchaEnabled}
-		<td class="label" valign="top">{fieldLabel name="recaptcha_challenge_field" required="true" key="common.captchaField"}</td>
+		<td valign="top">{fieldLabel name="recaptcha_challenge_field" required="true" key="common.captchaField"}</td>
 		<td class="value">
 			{$reCaptchaHtml}
 		</td>
 		{else}
-		<td class="label" valign="top">{fieldLabel name="captcha" required="true" key="common.captchaField"}</td>
+		<td valign="top">{fieldLabel name="captcha" required="true" key="common.captchaField"}</td>
 		<td class="value">
 			<img src="{url page="user" op="viewCaptcha" path=$captchaId}" alt="{translate key="common.captchaField.altText"}" /><br />
 			<span class="instruct">{translate key="common.captchaField.description"}</span><br />
@@ -90,6 +90,7 @@ function handleAnonymousCheckbox(theBox) {
 {/if}
 
 </table>
+<br>
 <p>
 	<input type="submit" value="{translate key="common.save"}" class="btn btn-primary" />
 	<input type="button" value="{translate key="common.cancel"}" class="btn btn-default" onclick="location.href='{url page="comment" op="view" path=$articleId|to_array:$galleyId:$parentId}';" /></p>
