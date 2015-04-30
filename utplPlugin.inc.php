@@ -15,9 +15,9 @@ DEFINE('ELSEVIER_URL', 'http://api.elsevier.com/content/search/scopus?apiKey=');
 class utplPlugin extends GenericPlugin {
 
 	/** @var $altmetricKey string */
-	var $_altmetricKey;
+	var $_altmetricKey="";
 	/** @var $scopusKey string */
-	var $_scopusKey;
+	var $_scopusKey="";
 
 	/**
 	*
@@ -54,8 +54,8 @@ class utplPlugin extends GenericPlugin {
 			if ($scopusKey || $altmetricKey) {
 				$this->_scopusKey = $scopusKey;
 				$this->_altmetricKey = $altmetricKey;
-				HookRegistry::register('TemplateManager::display', array(&$this, '_displayCallback'));
 			}
+				HookRegistry::register('TemplateManager::display', array(&$this, '_displayCallback'));
 		}
 		return $success;
 	}

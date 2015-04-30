@@ -30,8 +30,20 @@ class SettingsForm extends Form {
 		$journalId = $this->journalId;
 		$plugin =& $this->plugin;
 
-		$this->setData('scopusKey', $plugin->getSetting($journalId, 'scopusKey'));
-		$this->setData('altmetricKey', $plugin->getSetting($journalId, 'altmetricKey'));
+		$scopusKey = $plugin->getSetting($journalId, 'scopusKey');
+		$altmetricKey = $plugin->getSetting($journalId, 'altmetricKey');
+
+		if(is_null($scopusKey)){
+			$scopusKey = '';
+		}
+		if(is_null($scopusKey)){
+			$altmetricKey ='' ;
+		}
+
+
+
+		$this->setData('scopusKey', $scopusKey);
+		$this->setData('altmetricKey', $altmetricKey);
 
 	}
 
